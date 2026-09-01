@@ -3,7 +3,6 @@
 import React, { useActionState } from 'react';
 import styles from './ContactForm.module.scss';
 import { submitContactForm, ContactFormState } from '../../../actions/contactAction';
-import { Button } from '../../atoms/Button/Button';
 
 const initialState: ContactFormState = { status: 'idle', message: '' };
 
@@ -14,7 +13,6 @@ export const ContactForm: React.FC = () => {
     <section className={styles['contact-form']}>
       <div className={styles['contact-form__container']}>
         <header className={styles['contact-form__header']}>
-          <span className={styles['contact-form__eyebrow']}>Devis gratuit</span>
           <h2>Demandez un devis gratuit</h2>
           <p>Vous pouvez compter sur le professionnalisme de notre équipe pour prendre en main votre projet d&apos;assainissement.</p>
         </header>
@@ -69,9 +67,19 @@ export const ContactForm: React.FC = () => {
               </label>
             </div>
 
-            <Button type="submit" variant="primary" className={isPending ? styles['contact-form__submit--pending'] : ''}>
-              {isPending ? 'Envoi en cours...' : 'Envoyer'}
-            </Button>
+            <div className={styles['contact-form__actions']}>
+              <button
+                type="submit"
+                className={`${styles['contact-form__submit_btn']} ${isPending ? styles['contact-form__submit_btn--pending'] : ''}`}
+                disabled={isPending}
+              >
+                <span>{isPending ? 'Envoi en cours...' : 'Envoyer ma demande de devis'}</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13" />
+                  <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                </svg>
+              </button>
+            </div>
           </form>
         )}
       </div>

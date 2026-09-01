@@ -1,0 +1,73 @@
+:root {
+  // Brand colors - Light Mode
+  --color-primary: #1e3a8a; // Deep dark blue
+  --color-primary-light: #2563eb; // Royal blue
+  --color-secondary: #0ea5e9; // Cyan/blue
+  
+  // Theme colors - Light Mode
+  --color-bg: #ffffff;
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-surface: #f8fafc;
+  --color-surface-hover: #f1f5f9;
+  --color-border: #e2e8f0;
+
+  // Typography & Spacing
+  --font-base: 16px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+}
+
+[data-theme='dark'] {
+  // Brand colors - Dark Mode (Vibrant high contrast blue & cyan)
+  --color-primary: #3b82f6; // High contrast bright blue
+  --color-primary-light: #60a5fa; // Lighter bright blue
+  --color-secondary: #38bdf8; // Bright cyan
+  
+  // Theme colors - Dark Mode
+  --color-bg: #0f172a; // Dark slate background
+  --color-text: #f8fafc; // High contrast white text
+  --color-text-muted: #94a3b8; // Readable slate muted text
+  --color-surface: #1e293b; // Card surface
+  --color-surface-hover: #334155;
+  --color-border: #334155; // Visible border
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+img, video, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}

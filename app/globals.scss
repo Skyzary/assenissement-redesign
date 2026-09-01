@@ -1,16 +1,107 @@
 :root {
-  // Brand colors - Light Mode
-  --color-primary: #1e3a8a; // Deep dark blue
-  --color-primary-light: #2563eb; // Royal blue
-  --color-secondary: #0ea5e9; // Cyan/blue
-  
+  // Brand colors - Light Mode (Warm marine navy + striking orange urgency)
+  --color-primary: #1b3654;
+  --color-primary-light: #2e6b9e;
+  --color-primary-dark: #0e1c2e;
+  --color-secondary: #f97316;
+  --color-secondary-hover: #ea580c;
+  --color-accent: #ff6b00;
+  --color-accent-light: #ffedd5;
+  --color-accent-glow: #fb923c;
+  --color-accent-badge-bg: rgba(249, 115, 22, 0.12);
+  --color-accent-badge-border: rgba(249, 115, 22, 0.25);
+  --color-accent-badge-bg-strong: rgba(249, 115, 22, 0.18);
+  --color-accent-badge-border-strong: rgba(249, 115, 22, 0.4);
+  --color-accent-text-soft: #fed7aa;
+  --color-secondary-deep: #c2410c;
+  --color-primary-mid: #264a73;
+  --color-hero-accent: #9a3412;
+
+  // Text on dark / colored surfaces
+  --color-text-on-dark: #ffffff;
+  --color-text-on-dark-muted: rgba(255, 255, 255, 0.88);
+  --color-text-on-dark-strong: rgba(255, 255, 255, 0.9);
+  --color-text-on-dark-subtle: rgba(255, 255, 255, 0.85);
+  --color-text-on-dark-soft: rgba(255, 255, 255, 0.78);
+  --color-text-on-dark-faint: rgba(255, 255, 255, 0.75);
+  --color-text-on-dark-dim: rgba(255, 255, 255, 0.7);
+  --color-text-on-dark-placeholder: rgba(255, 255, 255, 0.55);
+  --color-text-on-dark-ghost: rgba(255, 255, 255, 0.45);
+  --color-text-on-dark-whisper: rgba(255, 255, 255, 0.12);
+
+  // Glass / overlay surfaces
+  --color-surface-glass: rgba(255, 255, 255, 0.06);
+  --color-surface-glass-border: rgba(255, 255, 255, 0.12);
+  --color-surface-overlay: rgba(255, 255, 255, 0.15);
+  --color-surface-overlay-border: rgba(255, 255, 255, 0.4);
+  --color-overlay-dark: rgba(14, 28, 46, 0.92);
+  --color-border-on-dark: rgba(255, 255, 255, 0.2);
+  --color-border-on-dark-strong: rgba(255, 255, 255, 0.7);
+  --color-border-on-dark-focus: rgba(255, 255, 255, 0.8);
+
   // Theme colors - Light Mode
   --color-bg: #ffffff;
   --color-text: #0f172a;
   --color-text-muted: #475569;
+  --color-text-inverse: #ffffff;
   --color-surface: #f8fafc;
   --color-surface-hover: #f1f5f9;
+  --color-surface-elevated: #ffffff;
   --color-border: #e2e8f0;
+  --color-border-subtle: rgba(226, 232, 240, 0.8);
+  --color-border-translucent: rgba(255, 255, 255, 0.25);
+
+  // Status & Accents
+  --color-success: #10b981;
+  --color-success-glow: rgba(16, 185, 129, 0.7);
+  --color-star: #f59e0b;
+  --color-error: #ef4444;
+  --color-error-bg: rgba(239, 68, 68, 0.15);
+  --color-error-border: rgba(239, 68, 68, 0.4);
+  --color-error-text: #991b1b;
+
+  // Form Controls
+  --color-input-bg: rgba(255, 255, 255, 0.1);
+  --color-input-border: rgba(255, 255, 255, 0.3);
+  --color-input-focus-border: rgba(255, 255, 255, 0.8);
+  --color-input-focus-bg: rgba(255, 255, 255, 0.15);
+  --color-input-placeholder: rgba(255, 255, 255, 0.55);
+  --color-select-option-bg: #ffffff;
+  --color-select-option-text: #1f2937;
+
+  // Gradients
+  --gradient-brand-vivid: linear-gradient(135deg, #1b3654 0%, #2e6b9e 48%, #ea580c 100%);
+  --gradient-hero-bg: linear-gradient(135deg, #0e1c2e 0%, #1b3654 58%, #9a3412 115%);
+  --gradient-btn-accent: linear-gradient(135deg, #ff6b00 0%, #ea580c 100%);
+  --gradient-btn-accent-hover: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+  --gradient-stats-bg: linear-gradient(135deg, #1b3654 0%, #2e6b9e 100%);
+  --gradient-hero-radial: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(249, 115, 22, 0.25) 0%, transparent 60%);
+  --gradient-stats-glow: radial-gradient(circle, rgba(249, 115, 22, 0.22) 0%, transparent 70%);
+
+  // Shadows
+  --shadow-color-primary: rgba(27, 54, 84, 0.25);
+  --shadow-color-primary-md: rgba(27, 54, 84, 0.3);
+  --shadow-color-primary-sm: rgba(46, 107, 158, 0.28);
+  --shadow-color-accent: rgba(249, 115, 22, 0.35);
+  --shadow-color-accent-sm: rgba(249, 115, 22, 0.15);
+  --shadow-color-accent-md: rgba(249, 115, 22, 0.25);
+  --shadow-color-accent-subtle: rgba(249, 115, 22, 0.08);
+  --shadow-color-accent-lg: rgba(249, 115, 22, 0.45);
+  --shadow-color-accent-xl: rgba(249, 115, 22, 0.55);
+  --shadow-color-accent-2xl: rgba(249, 115, 22, 0.65);
+  --shadow-color-secondary: rgba(234, 88, 12, 0.4);
+  --shadow-color-secondary-lg: rgba(234, 88, 12, 0.6);
+  --shadow-color-black-xs: rgba(0, 0, 0, 0.03);
+  --shadow-color-black-sm: rgba(0, 0, 0, 0.05);
+  --shadow-color-black-md: rgba(0, 0, 0, 0.06);
+  --shadow-color-black-lg: rgba(0, 0, 0, 0.1);
+  --shadow-color-black-xl: rgba(0, 0, 0, 0.12);
+  --shadow-color-black-2xl: rgba(0, 0, 0, 0.15);
+  --shadow-color-black-3xl: rgba(0, 0, 0, 0.35);
+  --shadow-text-dark: rgba(0, 0, 0, 0.15);
+  --shadow-sm: 0 2px 4px var(--shadow-color-black-sm);
+  --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 28px var(--shadow-color-black-xl);
 
   // Typography & Spacing
   --font-base: 16px;
@@ -21,21 +112,115 @@
   --space-xl: 2rem;
   --space-2xl: 3rem;
   --space-3xl: 4rem;
+
+  // Tokens
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
 }
 
 [data-theme='dark'] {
-  // Brand colors - Dark Mode (Vibrant high contrast blue & cyan)
-  --color-primary: #3b82f6; // High contrast bright blue
-  --color-primary-light: #60a5fa; // Lighter bright blue
-  --color-secondary: #38bdf8; // Bright cyan
-  
+  // Brand colors - Dark Mode (Muted warm blue + orange accent)
+  --color-primary: #4a90be;
+  --color-primary-light: #6aadd6;
+  --color-primary-dark: #2d6a98;
+  --color-secondary: #fb923c;
+  --color-secondary-hover: #f97316;
+  --color-accent: #ff7a1a;
+  --color-accent-light: #431407;
+  --color-accent-glow: #fdba74;
+  --color-accent-badge-bg: rgba(251, 146, 60, 0.15);
+  --color-accent-badge-border: rgba(251, 146, 60, 0.3);
+  --color-accent-badge-bg-strong: rgba(251, 146, 60, 0.2);
+  --color-accent-badge-border-strong: rgba(251, 146, 60, 0.45);
+  --color-accent-text-soft: #fdba74;
+  --color-secondary-deep: #c2410c;
+  --color-primary-mid: #3a7aab;
+  --color-hero-accent: #7c2d12;
+
+  // Text on dark / colored surfaces
+  --color-text-on-dark: #f8fafc;
+  --color-text-on-dark-muted: rgba(248, 250, 252, 0.88);
+  --color-text-on-dark-strong: rgba(248, 250, 252, 0.9);
+  --color-text-on-dark-subtle: rgba(248, 250, 252, 0.85);
+  --color-text-on-dark-soft: rgba(248, 250, 252, 0.78);
+  --color-text-on-dark-faint: rgba(248, 250, 252, 0.75);
+  --color-text-on-dark-dim: rgba(248, 250, 252, 0.7);
+  --color-text-on-dark-placeholder: rgba(148, 163, 184, 0.6);
+  --color-text-on-dark-ghost: rgba(148, 163, 184, 0.45);
+  --color-text-on-dark-whisper: rgba(255, 255, 255, 0.12);
+
+  // Glass / overlay surfaces
+  --color-surface-glass: rgba(255, 255, 255, 0.06);
+  --color-surface-glass-border: rgba(255, 255, 255, 0.12);
+  --color-surface-overlay: rgba(255, 255, 255, 0.1);
+  --color-surface-overlay-border: rgba(255, 255, 255, 0.25);
+  --color-overlay-dark: rgba(8, 18, 31, 0.92);
+  --color-border-on-dark: rgba(255, 255, 255, 0.15);
+  --color-border-on-dark-strong: rgba(255, 255, 255, 0.5);
+  --color-border-on-dark-focus: var(--color-secondary);
+
   // Theme colors - Dark Mode
-  --color-bg: #0f172a; // Dark slate background
-  --color-text: #f8fafc; // High contrast white text
-  --color-text-muted: #94a3b8; // Readable slate muted text
-  --color-surface: #1e293b; // Card surface
-  --color-surface-hover: #334155;
-  --color-border: #334155; // Visible border
+  --color-bg: #0e1c2e;
+  --color-text: #f8fafc;
+  --color-text-muted: #94a3b8;
+  --color-text-inverse: #0e1c2e;
+  --color-surface: #162a40;
+  --color-surface-hover: #1f3a56;
+  --color-surface-elevated: #162a40;
+  --color-border: #2a4560;
+  --color-border-subtle: rgba(51, 65, 85, 0.8);
+  --color-border-translucent: rgba(255, 255, 255, 0.15);
+
+  // Status & Accents
+  --color-success: #10b981;
+  --color-success-glow: rgba(16, 185, 129, 0.7);
+  --color-star: #fbbf24;
+  --color-error: #f87171;
+  --color-error-bg: rgba(239, 68, 68, 0.25);
+  --color-error-border: rgba(239, 68, 68, 0.5);
+  --color-error-text: #fecaca;
+
+  // Form Controls
+  --color-input-bg: rgba(14, 28, 46, 0.6);
+  --color-input-border: rgba(255, 255, 255, 0.2);
+  --color-input-focus-border: var(--color-secondary);
+  --color-input-focus-bg: rgba(14, 28, 46, 0.8);
+  --color-input-placeholder: rgba(148, 163, 184, 0.6);
+  --color-select-option-bg: #162a40;
+  --color-select-option-text: #f8fafc;
+
+  // Gradients
+  --gradient-brand-vivid: linear-gradient(135deg, #0e1c2e 0%, #1b3654 50%, #9a3412 100%);
+  --gradient-hero-bg: linear-gradient(135deg, #08121f 0%, #0e1c2e 58%, #7c2d12 115%);
+  --gradient-btn-accent: linear-gradient(135deg, #ff6b00 0%, #ea580c 100%);
+  --gradient-btn-accent-hover: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+  --gradient-stats-bg: linear-gradient(135deg, #0e1c2e 0%, #1b3654 100%);
+  --gradient-hero-radial: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(251, 146, 60, 0.2) 0%, transparent 60%);
+  --gradient-stats-glow: radial-gradient(circle, rgba(251, 146, 60, 0.18) 0%, transparent 70%);
+
+  // Shadows
+  --shadow-color-primary: rgba(74, 144, 190, 0.3);
+  --shadow-color-primary-md: rgba(74, 144, 190, 0.35);
+  --shadow-color-primary-sm: rgba(106, 173, 214, 0.25);
+  --shadow-color-accent: rgba(251, 146, 60, 0.35);
+  --shadow-color-accent-sm: rgba(251, 146, 60, 0.15);
+  --shadow-color-accent-md: rgba(251, 146, 60, 0.25);
+  --shadow-color-accent-subtle: rgba(251, 146, 60, 0.08);
+  --shadow-color-accent-lg: rgba(251, 146, 60, 0.45);
+  --shadow-color-accent-xl: rgba(251, 146, 60, 0.55);
+  --shadow-color-accent-2xl: rgba(251, 146, 60, 0.65);
+  --shadow-color-secondary: rgba(234, 88, 12, 0.4);
+  --shadow-color-secondary-lg: rgba(234, 88, 12, 0.6);
+  --shadow-color-black-xs: rgba(0, 0, 0, 0.15);
+  --shadow-color-black-sm: rgba(0, 0, 0, 0.2);
+  --shadow-color-black-md: rgba(0, 0, 0, 0.25);
+  --shadow-color-black-lg: rgba(0, 0, 0, 0.35);
+  --shadow-color-black-xl: rgba(0, 0, 0, 0.4);
+  --shadow-color-black-2xl: rgba(0, 0, 0, 0.45);
+  --shadow-color-black-3xl: rgba(0, 0, 0, 0.55);
+  --shadow-text-dark: rgba(0, 0, 0, 0.35);
 }
 
 * {
@@ -51,7 +236,7 @@ html, body {
 }
 
 body {
-  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-manrope), var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background-color: var(--color-bg);
   color: var(--color-text);
   line-height: 1.5;

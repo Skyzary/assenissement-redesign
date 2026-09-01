@@ -4,12 +4,12 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 20px var(--shadow-color-black-xs);
 
   /* Top emergency contact strip */
   &__top-bar {
     background-color: var(--color-primary);
-    color: #ffffff;
+    color: var(--color-text-on-dark);
     font-size: 0.825rem;
     padding: 8px 0;
   }
@@ -40,16 +40,21 @@
   &__top-phones {
     display: flex;
     align-items: center;
-    gap: var(--space-md);
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: var(--space-sm) var(--space-md);
 
     @media (max-width: 640px) {
+      justify-content: center;
       gap: var(--space-xs);
+      font-size: 0.8rem;
     }
 
     a {
-      color: #ffffff;
+      color: var(--color-text-on-dark);
       font-weight: 600;
       text-decoration: none;
+      white-space: nowrap;
 
       &:hover {
         text-decoration: underline;
@@ -57,9 +62,9 @@
     }
   }
 
-  &__urgency-link {
-    color: #7dd3fc !important;
-    font-weight: 700 !important;
+  &__top-phones &__urgency-link {
+    color: var(--color-accent-glow);
+    font-weight: 700;
   }
 
   &__phone-divider {
@@ -71,10 +76,10 @@
     max-width: 1400px;
     margin: 0 auto;
     padding: var(--space-md) var(--space-xl);
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
-    justify-content: space-between;
-    gap: var(--space-2xl);
+    gap: var(--space-lg);
 
     @media (max-width: 768px) {
       padding: 12px var(--space-md);
@@ -128,8 +133,9 @@
   &__nav {
     display: flex;
     align-items: center;
-    margin-left: auto; /* Push nav towards center/right */
-    margin-right: var(--space-2xl); /* Generous spacing before ThemeToggle and CTA */
+    justify-content: center;
+    justify-self: center;
+    min-width: 0;
 
     @media (max-width: 1024px) {
       display: none;
@@ -143,25 +149,36 @@
         width: 100%;
         background-color: var(--color-bg);
         border-bottom: 1px solid var(--color-border);
-        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 16px 32px var(--shadow-color-black-2xl);
         padding: var(--space-xl) var(--space-md);
         z-index: 1000;
-        margin: 0;
+        justify-self: stretch;
       }
     }
   }
 
   &__nav-list {
     display: flex;
-    gap: var(--space-xl);
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-md) var(--space-lg);
     list-style: none;
     margin: 0;
     padding: 0;
+
+    @media (min-width: 1025px) and (max-width: 1200px) {
+      gap: var(--space-sm) var(--space-md);
+
+      a {
+        font-size: 0.925rem;
+      }
+    }
 
     @media (max-width: 1024px) {
       flex-direction: column;
       width: 100%;
       gap: var(--space-md);
+      align-items: stretch;
     }
 
     a {
@@ -170,8 +187,9 @@
       font-size: 1rem;
       transition: color 0.2s ease;
       text-decoration: none;
-      padding: 8px 0;
+      padding: 8px 4px;
       display: block;
+      white-space: nowrap;
 
       &:hover {
         color: var(--color-primary);
@@ -182,8 +200,10 @@
   &__cta {
     display: flex;
     align-items: center;
-    gap: var(--space-md); /* 16px gap between ThemeToggle and CTA Button */
+    justify-content: flex-end;
+    gap: var(--space-md);
     flex-shrink: 0;
+    justify-self: end;
 
     @media (max-width: 480px) {
       a {

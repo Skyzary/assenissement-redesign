@@ -15,8 +15,8 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, tagline, 
     <article className={styles['service-card']}>
       <div className={styles['service-card__top']}>
         <div className={styles['service-card__icon']}>{icon}</div>
-        {tagline && <span className={styles['service-card__tagline']}>{tagline}</span>}
       </div>
+      {tagline && <span className={styles['service-card__tagline']}>{tagline}</span>}
       
       <h3 className={styles['service-card__title']}>{title}</h3>
       <p className={styles['service-card__desc']}>{description}</p>

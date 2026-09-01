@@ -1,21 +1,21 @@
 .footer {
   background-color: var(--color-primary);
-  color: #ffffff;
-  padding-top: calc(var(--space-3xl) * 1.3);
+  color: var(--color-text-on-dark);
+  padding-top: 2rem;
   text-align: center;
 
   &__container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 var(--space-xl) calc(var(--space-3xl) * 1.2);
+    padding: 0 var(--space-xl) 1.5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: var(--space-3xl);
+    gap: 1.5rem;
 
     @media (max-width: 640px) {
-      padding: 0 var(--space-lg) var(--space-3xl);
-      gap: var(--space-2xl);
+      padding: 0 var(--space-lg) 1.25rem;
+      gap: 1rem;
       flex-direction: column;
       align-items: center;
     }
@@ -29,46 +29,51 @@
     min-width: 240px;
 
     h3 {
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 700;
-      margin-bottom: var(--space-lg);
+      margin-bottom: 0.75rem;
       letter-spacing: 0.04em;
       text-transform: uppercase;
     }
 
     p {
-      color: rgba(255, 255, 255, 0.78);
-      margin-bottom: var(--space-sm);
-      font-size: 0.975rem;
-      line-height: 1.6;
+      color: var(--color-text-on-dark-soft);
+      margin: 0 0 0.25rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
 
     ul {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: var(--space-md);
+      gap: 0.5rem;
       list-style: none;
       padding: 0;
+      margin: 0;
 
       a {
-        color: rgba(255, 255, 255, 0.78);
-        font-size: 0.975rem;
+        color: var(--color-text-on-dark-soft);
+        font-size: 0.95rem;
         transition: color 0.2s ease;
         text-decoration: none;
 
         &:hover {
-          color: #ffffff;
+          color: var(--color-text-on-dark);
         }
       }
     }
   }
 
   &__bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-top: 1px solid var(--color-text-on-dark-whisper);
     text-align: center;
-    padding: var(--space-xl) var(--space-lg);
-    color: rgba(255, 255, 255, 0.55);
-    font-size: 0.875rem;
+    padding: 1rem var(--space-lg);
+    color: var(--color-text-on-dark-placeholder);
+    font-size: 0.8rem;
+
+    p {
+      margin: 0;
+    }
   }
 }

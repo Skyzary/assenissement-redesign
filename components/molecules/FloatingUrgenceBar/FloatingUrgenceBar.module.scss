@@ -3,14 +3,14 @@
   bottom: 24px;
   right: 24px;
   z-index: 999;
-  background: rgba(15, 23, 42, 0.92);
+  background: var(--color-overlay-dark);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 999px;
+  border: 1px solid var(--color-border-on-dark);
+  border-radius: var(--radius-full);
   padding: 8px 12px 8px 18px;
-  box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.35);
-  color: #ffffff;
+  box-shadow: 0 16px 36px -6px var(--shadow-color-black-3xl);
+  color: var(--color-text-on-dark);
   max-width: calc(100vw - 32px);
 
   @media (max-width: 640px) {
@@ -37,9 +37,9 @@
   &__dot {
     width: 8px;
     height: 8px;
-    background-color: #10b981;
+    background-color: var(--color-success);
     border-radius: 50%;
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    box-shadow: 0 0 0 0 var(--color-success-glow);
     animation: green-glow 2s infinite;
     flex-shrink: 0;
   }
@@ -47,7 +47,7 @@
   &__status_text {
     font-size: 0.825rem;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--color-text-on-dark-muted);
     letter-spacing: 0.01em;
 
     @media (max-width: 480px) {
@@ -59,19 +59,21 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: linear-gradient(135deg, #0284c7 0%, var(--color-secondary) 100%);
-    color: #ffffff;
+    background: var(--gradient-btn-accent);
+    color: var(--color-text-on-dark);
     padding: 8px 16px;
-    border-radius: 999px;
+    border-radius: var(--radius-full);
     font-weight: 700;
     font-size: 0.875rem;
     text-decoration: none;
     white-space: nowrap;
-    transition: filter 0.2s ease;
-    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    box-shadow: 0 4px 14px var(--shadow-color-accent-lg);
 
     &:hover {
       filter: brightness(1.1);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px var(--shadow-color-accent-2xl);
     }
   }
 }
@@ -79,14 +81,14 @@
 @keyframes green-glow {
   0% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    box-shadow: 0 0 0 0 var(--color-success-glow);
   }
   70% {
     transform: scale(1);
-    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+    box-shadow: 0 0 0 6px transparent;
   }
   100% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    box-shadow: 0 0 0 0 var(--color-success-glow);
   }
 }

@@ -35,8 +35,9 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--color-primary);
-    background-color: rgba(59, 130, 246, 0.12);
+    color: var(--color-secondary);
+    background-color: var(--color-accent-badge-bg);
+    border: 1px solid var(--color-accent-badge-border);
     padding: 6px 14px;
     border-radius: 999px;
     margin-bottom: var(--space-md);
@@ -47,7 +48,7 @@
     border-radius: 20px;
     border: 1px solid var(--color-border);
     padding: var(--space-xl);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 16px 40px var(--shadow-color-black-md);
     display: flex;
     flex-direction: column;
     gap: var(--space-xl);
@@ -72,15 +73,27 @@
 
   &__options {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: var(--space-sm);
 
-    @media (max-width: 500px) {
+    @media (max-width: 1100px) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    @media (max-width: 760px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (max-width: 520px) {
       grid-template-columns: 1fr;
     }
   }
 
   &__option {
+    min-height: 86px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     padding: var(--space-md);
     border-radius: 12px;
     border: 1px solid var(--color-border);
@@ -101,8 +114,13 @@
     &--active {
       border-color: var(--color-primary);
       background-color: var(--color-primary);
-      color: #ffffff !important;
-      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+      color: var(--color-text-on-dark);
+      box-shadow: 0 4px 14px var(--shadow-color-primary-md);
+
+      &:hover {
+        color: var(--color-text-on-dark);
+        border-color: var(--color-primary);
+      }
     }
   }
 
@@ -136,8 +154,13 @@
     &--active {
       border-color: var(--color-secondary);
       background-color: var(--color-secondary);
-      color: #ffffff;
-      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.3);
+      color: var(--color-text-on-dark);
+      box-shadow: 0 4px 14px var(--shadow-color-accent);
+
+      &:hover {
+        color: var(--color-text-on-dark);
+        border-color: var(--color-secondary);
+      }
     }
   }
 
@@ -177,7 +200,7 @@
   &__price {
     font-size: 1.75rem;
     font-weight: 800;
-    color: var(--color-primary);
+    color: var(--color-secondary);
   }
 
   &__note {

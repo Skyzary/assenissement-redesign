@@ -60,7 +60,7 @@ export const Header: React.FC = () => {
         <div className={styles.header__cta}>
           <ThemeToggle />
 
-          <Button href="/contact" variant="primary">
+          <Button href="/contact" variant="secondary">
             Devis Gratuit
           </Button>
 

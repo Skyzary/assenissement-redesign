@@ -6,24 +6,30 @@
   flex-direction: column;
   gap: var(--space-sm);
   border: 1px solid var(--color-border);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 12px var(--shadow-color-black-xs);
+  min-width: 0;
+  height: 100%;
 
   &__stars {
     display: flex;
     align-items: center;
     gap: 4px;
-    color: #f59e0b;
+    color: var(--color-star);
     margin-bottom: 2px;
+    flex-shrink: 0;
   }
 
   &__quote {
     flex-grow: 1;
+    min-width: 0;
 
     p {
       color: var(--color-text);
       font-size: 0.95rem;
       line-height: 1.7;
       font-style: italic;
+      overflow-wrap: break-word;
+      word-break: break-word;
     }
   }
 
@@ -33,5 +39,6 @@
     font-size: 0.9rem;
     padding-top: var(--space-sm);
     border-top: 1px solid var(--color-border);
+    overflow-wrap: break-word;
   }
 }

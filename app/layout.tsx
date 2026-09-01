@@ -1,18 +1,22 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.scss';
-import { SmoothScrollProvider } from '../components/atoms/SmoothScroll/SmoothScrollProvider';
-import { JsonLd } from '../components/atoms/JsonLd/JsonLd';
+import { SmoothScrollProvider } from '@/components/atoms/SmoothScroll/SmoothScrollProvider';
+import { JsonLd } from '@/components/atoms/JsonLd/JsonLd';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const inter = Inter({ 
+  subsets: ['latin'], 
+  variable: '--font-inter',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.burnens-assainissement.fr'),
   title: {
-    default: "Burnens Assainissement — Débouchage canalisation Montpellier & Hérault",
+    default: "Débouchage & Fosse Septique Hérault | Burnens",
     template: "%s | Burnens Assainissement",
   },
-  description: 'Burnens Assainissement à Cournonsec : débouchage de canalisation, pose et vidange de fosse septique, pompage bac à graisses, caméra canalisation. Urgences 7j/7 24h/24.',
+  description: 'Débouchage canalisation, vidange fosse septique et pompage dans l\'Hérault. Burnens Assainissement à Cournonsec, urgences 7j/7 24h/24.',
   keywords: [
     'débouchage canalisation Montpellier',
     'vidange fosse septique Cournonsec',

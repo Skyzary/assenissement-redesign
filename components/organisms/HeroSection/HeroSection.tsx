@@ -1,27 +1,24 @@
-'use client';
-
 import React from 'react';
 import styles from './HeroSection.module.scss';
-import { motion } from 'framer-motion';
-import { Button } from '../../atoms/Button/Button';
+import Image from 'next/image';
+import { Button } from '@/components/atoms/Button/Button';
 
 export const HeroSection: React.FC = () => {
   return (
     <section className={styles.hero}>
-      <motion.div 
-        className={styles.hero__bg} 
-        aria-hidden="true" 
-        initial={{ scale: 1.1 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-      />
+      <div className={styles.hero__bg} aria-hidden="true">
+        <Image
+          src="/images/hero-bg.webp"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          quality={75}
+          className={styles.hero__bg_img}
+        />
+      </div>
       <div className={styles.hero__container}>
-        <motion.div
-          className={styles.hero__content}
-          initial={{ opacity: 0, y: 40, filter: 'blur(10px)' }}
-          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-        >
+        <div className={styles.hero__content}>
           <div className={styles.hero__badge}>Urgences 7j/7 — 24h/24</div>
           <h1 className={styles.hero__title}>
             Le spécialiste du débouchage de canalisation dans&nbsp;
@@ -37,8 +34,9 @@ export const HeroSection: React.FC = () => {
               Urgence : 06 65 14 55 76
             </Button>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
 };
+

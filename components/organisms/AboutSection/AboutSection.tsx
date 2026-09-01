@@ -24,17 +24,17 @@ export const AboutSection: React.FC = () => {
           viewport={{ once: true }}
         >
           <span className={styles['about-section__eyebrow']}>Depuis 2009</span>
-          <h2>Dans le métier depuis 2009</h2>
+          <h2>Votre spécialiste de l&apos;assainissement</h2>
           <p>
-            Confiez-nous la réalisation de vos travaux d&apos;assainissement et de terrassement.
-            Nous œuvrons dans le domaine depuis plus de 15 ans. Avant de commencer les travaux,
-            nous étudions minutieusement l&apos;aspect technique de votre projet afin de vous proposer
-            le dispositif d&apos;assainissement adapté.
+            En tant que <strong>spécialiste du débouchage de canalisation</strong> et de l&apos;assainissement,
+            nous mettons à votre service plus de 15 ans d&apos;expertise technique. Avant de commencer
+            les travaux, nous étudions minutieusement chaque situation afin de vous proposer la solution
+            de débouchage et d&apos;assainissement la plus adaptée et durable.
           </p>
           <p>
-            Nous sommes basés à <strong>Cournonsec</strong> et intervenons dans une{' '}
-            <strong>zone de 50 km dans l&apos;Hérault</strong>, incluant Montpellier, Sète,
-            Frontignan, Palavas, Lattes, Mèze, Balaruc, etc.
+            Basée à <strong>Cournonsec</strong>, notre équipe intervient en urgence dans tout le département
+            de <strong>l&apos;Hérault</strong> (zone de 50 km autour de Montpellier, Sète, Frontignan,
+            Palavas-les-Flots, Lattes, Mèze, Balaruc et ses environs).
           </p>
 
           <ul className={styles['about-section__advantages']}>
@@ -56,10 +56,13 @@ export const AboutSection: React.FC = () => {
         >
           <div className={styles['about-section__image']}>
             <Image
-              src="/images/about.jpg"
+              src="/images/about.webp"
               alt="Technicien Burnens Assainissement au travail"
               width={600}
               height={450}
+              sizes="(max-width: 900px) 100vw, 600px"
+              loading="lazy"
+              quality={75}
               className={styles['about-section__img']}
             />
           </div>

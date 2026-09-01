@@ -1,10 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
-import { Header } from '../../../components/organisms/Header/Header';
-import { Footer } from '../../../components/organisms/Footer/Footer';
-import { Button } from '../../../components/atoms/Button/Button';
+import { Header } from '@/components/organisms/Header/Header';
+import { Footer } from '@/components/organisms/Footer/Footer';
+import { Button } from '@/components/atoms/Button/Button';
 import type { Metadata } from 'next';
-import styles from '../debouchage/service.module.scss';
+import styles from '@/app/services/debouchage/service.module.scss';
 
 export const metadata: Metadata = {
   title: 'Terrassement VRD — Burnens Assainissement',
@@ -30,7 +30,15 @@ export default function TerrassementPage() {
               </div>
             </div>
             <div className={styles['service-hero__image']}>
-              <Image src="/images/terrassement.jpg" alt="Terrassement VRD" width={560} height={380} priority />
+              <Image 
+                src="/images/terrassement.webp" 
+                alt="Terrassement VRD" 
+                width={560} 
+                height={380} 
+                sizes="(max-width: 900px) 100vw, 560px"
+                quality={75}
+                priority 
+              />
             </div>
           </div>
         </section>

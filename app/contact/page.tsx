@@ -1,7 +1,7 @@
 import React from 'react';
-import { Header } from '../../components/organisms/Header/Header';
-import { Footer } from '../../components/organisms/Footer/Footer';
-import { ContactForm } from '../../components/organisms/ContactForm/ContactForm';
+import { Header } from '@/components/organisms/Header/Header';
+import { Footer } from '@/components/organisms/Footer/Footer';
+import { ContactForm } from '@/components/organisms/ContactForm/ContactForm';
 import type { Metadata } from 'next';
 import styles from './contact.module.scss';
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
-import { Header } from '../../../components/organisms/Header/Header';
-import { Footer } from '../../../components/organisms/Footer/Footer';
-import { Button } from '../../../components/atoms/Button/Button';
+import { Header } from '@/components/organisms/Header/Header';
+import { Footer } from '@/components/organisms/Footer/Footer';
+import { Button } from '@/components/atoms/Button/Button';
 import type { Metadata } from 'next';
 import styles from './service.module.scss';
 
@@ -32,10 +32,12 @@ export default function DebouchagePage() {
             </div>
             <div className={styles['service-hero__image']}>
               <Image
-                src="/images/hero-bg.jpg"
+                src="/images/hero-bg.webp"
                 alt="Débouchage de canalisation"
                 width={560}
                 height={380}
+                sizes="(max-width: 900px) 100vw, 560px"
+                quality={75}
                 priority
               />
             </div>

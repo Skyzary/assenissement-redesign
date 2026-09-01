@@ -2,7 +2,7 @@
 
 import React from 'react';
 import styles from './TestimonialsSection.module.scss';
-import { TestimonialCard } from '../../molecules/TestimonialCard/TestimonialCard';
+import { TestimonialCard } from '@/components/molecules/TestimonialCard/TestimonialCard';
 import { motion } from 'framer-motion';
 
 const testimonials = [

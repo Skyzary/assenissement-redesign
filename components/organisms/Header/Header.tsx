@@ -4,8 +4,8 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Header.module.scss';
-import { Button } from '../../atoms/Button/Button';
-import { ThemeToggle } from '../../atoms/ThemeToggle/ThemeToggle';
+import { Button } from '@/components/atoms/Button/Button';
+import { ThemeToggle } from '@/components/atoms/ThemeToggle/ThemeToggle';
 
 export const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -33,7 +33,7 @@ export const Header: React.FC = () => {
         <div className={styles.header__logo}>
           <Link href="/">
             <Image 
-              src="/images/logo.png" 
+              src="/images/logo.webp" 
               alt="Burnens Assainissement Logo" 
               width={46} 
               height={46} 

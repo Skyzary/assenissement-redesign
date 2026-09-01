@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import styles from './QuoteCalculator.module.scss';
 import { motion } from 'framer-motion';
-import { Button } from '../../atoms/Button/Button';
+import { Button } from '@/components/atoms/Button/Button';
 
 interface ServiceOption {
   id: string;

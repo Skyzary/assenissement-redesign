@@ -1,0 +1,112 @@
+.hero {
+  position: relative;
+  padding: var(--space-3xl) var(--space-xl);
+  min-height: 540px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  @media (max-width: 640px) {
+    padding: var(--space-3xl) var(--space-lg);
+    min-height: auto;
+  }
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%);
+    z-index: 0;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('/images/hero-bg.jpg') center / cover no-repeat;
+      opacity: 0.15;
+    }
+  }
+
+  &__container {
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  &__content {
+    max-width: 800px;
+  }
+
+  &__badge {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: var(--space-xs) var(--space-md);
+    border-radius: 999px;
+    margin-bottom: var(--space-lg);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  &__title {
+    font-size: clamp(1.9rem, 5vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.25;
+    color: #ffffff;
+    margin-bottom: var(--space-lg);
+    word-break: break-word;
+  }
+
+  &__title--accent {
+    color: #7dd3fc;
+  }
+
+  &__subtitle {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.75;
+    margin-bottom: var(--space-2xl);
+    max-width: 720px;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+
+    @media (max-width: 640px) {
+      flex-direction: column;
+      width: 100%;
+      gap: var(--space-md);
+
+      a {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    a {
+      &:first-child {
+        background-color: #ffffff;
+        color: #1e3a8a;
+
+        &:hover {
+          background-color: #f0f9ff;
+        }
+      }
+
+      &:last-child {
+        border-color: rgba(255, 255, 255, 0.7);
+        color: #ffffff;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+  }
+}

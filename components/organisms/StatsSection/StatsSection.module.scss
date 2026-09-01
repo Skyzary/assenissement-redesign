@@ -1,0 +1,83 @@
+.stats {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #1e40af 100%);
+  color: #ffffff;
+  padding: var(--space-3xl) 0;
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: 640px) {
+    padding: var(--space-2xl) 0;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
+    pointer-events: none;
+  }
+
+  &__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-xl);
+    position: relative;
+    z-index: 1;
+
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding: 0 var(--space-md);
+    }
+  }
+}
+
+.stat {
+  text-align: center;
+  padding: var(--space-lg);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  @media (max-width: 640px) {
+    padding: 16px 12px;
+    border-radius: 12px;
+  }
+
+  &__number {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 800;
+    color: #7dd3fc;
+    line-height: 1.1;
+    margin-bottom: 4px;
+    font-feature-settings: 'tnum';
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__label {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 2px;
+
+    @media (max-width: 480px) {
+      font-size: 0.875rem;
+    }
+  }
+
+  &__sublabel {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+
+    @media (max-width: 480px) {
+      font-size: 0.75rem;
+    }
+  }
+}

@@ -1,0 +1,233 @@
+.header {
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+
+  /* Top emergency contact strip */
+  &__top-bar {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    font-size: 0.825rem;
+    padding: 8px 0;
+  }
+
+  &__top-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 640px) {
+      justify-content: center;
+      padding: 0 var(--space-md);
+    }
+  }
+
+  &__urgency-badge {
+    font-weight: 700;
+    letter-spacing: 0.02em;
+
+    @media (max-width: 640px) {
+      display: none;
+    }
+  }
+
+  &__top-phones {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+
+    @media (max-width: 640px) {
+      gap: var(--space-xs);
+    }
+
+    a {
+      color: #ffffff;
+      font-weight: 600;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__urgency-link {
+    color: #7dd3fc !important;
+    font-weight: 700 !important;
+  }
+
+  &__phone-divider {
+    opacity: 0.4;
+  }
+
+  /* Main navigation container */
+  &__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--space-md) var(--space-xl);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2xl);
+
+    @media (max-width: 768px) {
+      padding: 12px var(--space-md);
+      gap: var(--space-md);
+    }
+  }
+
+  &__logo {
+    a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    img {
+      @media (max-width: 480px) {
+        width: 38px;
+        height: 38px;
+      }
+    }
+  }
+
+  &__brand-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__logo-text {
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--color-text);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+
+    @media (max-width: 480px) {
+      font-size: 0.95rem;
+    }
+  }
+
+  &__logo-subtext {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+
+    @media (max-width: 640px) {
+      display: none;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Push nav towards center/right */
+    margin-right: var(--space-2xl); /* Generous spacing before ThemeToggle and CTA */
+
+    @media (max-width: 1024px) {
+      display: none;
+
+      &--open {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background-color: var(--color-bg);
+        border-bottom: 1px solid var(--color-border);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+        padding: var(--space-xl) var(--space-md);
+        z-index: 1000;
+        margin: 0;
+      }
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    gap: var(--space-xl);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      width: 100%;
+      gap: var(--space-md);
+    }
+
+    a {
+      color: var(--color-text);
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.2s ease;
+      text-decoration: none;
+      padding: 8px 0;
+      display: block;
+
+      &:hover {
+        color: var(--color-primary);
+      }
+    }
+  }
+
+  &__cta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md); /* 16px gap between ThemeToggle and CTA Button */
+    flex-shrink: 0;
+
+    @media (max-width: 480px) {
+      a {
+        display: none;
+      }
+    }
+  }
+
+  /* Hamburger Icon */
+  &__hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 26px;
+    height: 22px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+    flex-shrink: 0;
+
+    @media (max-width: 1024px) {
+      display: flex;
+    }
+  }
+
+  &__bar {
+    width: 100%;
+    height: 2.5px;
+    background-color: var(--color-text);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+
+    &--open:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    &--open:nth-child(2) {
+      opacity: 0;
+    }
+
+    &--open:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
+}

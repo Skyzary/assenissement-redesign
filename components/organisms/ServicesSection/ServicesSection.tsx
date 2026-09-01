@@ -2,7 +2,7 @@
 
 import React from 'react';
 import styles from './ServicesSection.module.scss';
-import { ServiceCard } from '../../molecules/ServiceCard/ServiceCard';
+import { ServiceCard } from '@/components/molecules/ServiceCard/ServiceCard';
 import { motion } from 'framer-motion';
 
 const Icons = {
@@ -111,9 +111,10 @@ export const ServicesSection: React.FC = () => {
           viewport={{ once: true, margin: '-80px' }}
         >
           <span className={styles['services-section__badge']}>Nos domaines d&apos;expertise</span>
-          <h2>Prestations d&apos;assainissement sur-mesure</h2>
+          <h2>Votre spécialiste en débouchage et assainissement</h2>
           <p>
-            Solutions techniques de pointe pour particuliers, professionnels et collectivités dans tout l&apos;Hérault.
+            Spécialiste du débouchage de canalisation et des travaux d&apos;assainissement dans tout l&apos;Hérault :
+            des solutions techniques de pointe adaptées aux particuliers, professionnels et collectivités.
           </p>
         </motion.header>
 

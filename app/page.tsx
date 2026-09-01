@@ -1,20 +1,28 @@
-import React from 'react';
-import { Header } from '../components/organisms/Header/Header';
-import { Footer } from '../components/organisms/Footer/Footer';
-import { HeroSection } from '../components/organisms/HeroSection/HeroSection';
-import { ServicesSection } from '../components/organisms/ServicesSection/ServicesSection';
-import { AboutSection } from '../components/organisms/AboutSection/AboutSection';
-import { StatsSection } from '../components/organisms/StatsSection/StatsSection';
-import { QuoteCalculator } from '../components/organisms/QuoteCalculator/QuoteCalculator';
-import { TestimonialsSection } from '../components/organisms/TestimonialsSection/TestimonialsSection';
-import { FaqSection } from '../components/organisms/FaqSection/FaqSection';
-import { ContactForm } from '../components/organisms/ContactForm/ContactForm';
-import { FloatingUrgenceBar } from '../components/molecules/FloatingUrgenceBar/FloatingUrgenceBar';
+import dynamic from 'next/dynamic';
+import { Header } from '@/components/organisms/Header/Header';
+import { Footer } from '@/components/organisms/Footer/Footer';
+import { HeroSection } from '@/components/organisms/HeroSection/HeroSection';
+import { ServicesSection } from '@/components/organisms/ServicesSection/ServicesSection';
+import { AboutSection } from '@/components/organisms/AboutSection/AboutSection';
+import { StatsSection } from '@/components/organisms/StatsSection/StatsSection';
+import { TestimonialsSection } from '@/components/organisms/TestimonialsSection/TestimonialsSection';
+import { FaqSection } from '@/components/organisms/FaqSection/FaqSection';
+import { FloatingUrgenceBar } from '@/components/molecules/FloatingUrgenceBar/FloatingUrgenceBar';
 import type { Metadata } from 'next';
 
+const QuoteCalculator = dynamic(
+  () => import('@/components/organisms/QuoteCalculator/QuoteCalculator').then((mod) => mod.QuoteCalculator),
+  { ssr: true }
+);
+
+const ContactForm = dynamic(
+  () => import('@/components/organisms/ContactForm/ContactForm').then((mod) => mod.ContactForm),
+  { ssr: true }
+);
+
 export const metadata: Metadata = {
-  title: "Débouchage canalisation Montpellier & Hérault — Burnens Assainissement",
-  description: 'Burnens assainissement à Cournonsec : débouchage de canalisation, vidange de fosse septique, pompage bac à graisses, caméra canalisation. Urgences 7j/7 24h/24.',
+  title: "Débouchage & Fosse Septique Hérault | Burnens",
+  description: 'Débouchage canalisation, vidange fosse septique et pompage dans l\'Hérault. Burnens Assainissement à Cournonsec, urgences 7j/7 24h/24.',
   keywords: 'débouchage canalisation, vidange fosse septique, pompage bac à graisses, assainissement Montpellier, Hérault, Cournonsec',
   openGraph: {
     title: "Burnens Assainissement — Débouchage & Assainissement Hérault",

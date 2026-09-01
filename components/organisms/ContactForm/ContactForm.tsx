@@ -2,7 +2,7 @@
 
 import React, { useActionState } from 'react';
 import styles from './ContactForm.module.scss';
-import { submitContactForm, ContactFormState } from '../../../actions/contactAction';
+import { submitContactForm, ContactFormState } from '@/actions/contactAction';
 
 const initialState: ContactFormState = { status: 'idle', message: '' };
 

@@ -16,14 +16,13 @@
     inset: 0;
     background: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%);
     z-index: 0;
+    overflow: hidden;
+  }
 
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url('/images/hero-bg.jpg') center / cover no-repeat;
-      opacity: 0.15;
-    }
+  &__bg_img {
+    object-fit: cover;
+    opacity: 0.15;
+    transform: scale(1.02);
   }
 
   &__container {

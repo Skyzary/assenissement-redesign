@@ -22,8 +22,8 @@ const ContactForm = dynamic(
 
 export const metadata: Metadata = {
   title: "Débouchage & Fosse Septique Hérault | Burnens",
-  description: 'Débouchage canalisation, vidange fosse septique et pompage dans l\'Hérault. Burnens Assainissement à Cournonsec, urgences 7j/7 24h/24.',
-  keywords: 'débouchage canalisation, vidange fosse septique, pompage bac à graisses, assainissement Montpellier, Hérault, Cournonsec',
+  description: 'Débouchage canalisation, inondation, vidange fosse septique et pompage dans l\'Hérault. Burnens Assainissement à Cournonsec, urgences 7j/7 24h/24.',
+  keywords: 'débouchage canalisation, inondation, vidange fosse septique, pompage bac à graisses, assainissement Montpellier, Hérault, Cournonsec',
   openGraph: {
     title: "Burnens Assainissement — Débouchage & Assainissement Hérault",
     description: 'Spécialiste du débouchage de canalisation, fosse septique et assainissement dans l\'Hérault depuis 2009.',

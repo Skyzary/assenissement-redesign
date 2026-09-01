@@ -9,7 +9,7 @@ export const HeroSection: React.FC = () => {
       <div className={styles.hero__bg} aria-hidden="true">
         <Image
           src="/images/hero-bg.webp"
-          alt=""
+          alt="Intervention débouchage et assainissement par Burnens dans l'Hérault"
           fill
           priority
           sizes="100vw"
@@ -29,7 +29,7 @@ export const HeroSection: React.FC = () => {
             Intervention rapide à Montpellier, Sète, Palavas, Lattes, Frontignan et toute la région.
           </p>
           <div className={styles.hero__actions}>
-            <Button href="/contact" variant="primary">Devis gratuit</Button>
+            <Button href="/contact" variant="primary">Demander un devis</Button>
             <Button href="tel:+33665145576" variant="outline">
               Urgence : 06 65 14 55 76
             </Button>

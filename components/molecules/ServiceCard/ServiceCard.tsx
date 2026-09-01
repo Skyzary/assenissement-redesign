@@ -22,8 +22,12 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, tagline, 
       <p className={styles['service-card__desc']}>{description}</p>
       
       <div className={styles['service-card__footer']}>
-        <Link href={href} className={styles['service-card__link']}>
-          En savoir plus
+        <Link 
+          href={href} 
+          className={styles['service-card__link']}
+          aria-label={`En savoir plus sur le service : ${title}`}
+        >
+          <span>En savoir plus sur {title.toLowerCase()}</span>
           <svg className={styles['service-card__arrow']} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <line x1="5" y1="12" x2="19" y2="12" />
             <polyline points="12 5 19 12 12 19" />

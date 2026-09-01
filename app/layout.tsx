@@ -33,6 +33,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: './',
   },
+  icons: {
+    icon: '/favicon.ico',
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
   openGraph: {
     type: 'website',
     locale: 'fr_FR',

@@ -1,0 +1,107 @@
+.hero {
+  background: var(--gradient-brand-vivid);
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+  padding: var(--space-3xl) var(--space-lg);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(56, 189, 248, 0.3) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  @media (max-width: 768px) {
+    padding: var(--space-2xl) var(--space-md);
+  }
+
+  &__container {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto;
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: var(--space-sm);
+      line-height: 1.1;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1.1rem;
+
+      a {
+        color: var(--color-accent-glow);
+        font-weight: 700;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.info {
+  padding: var(--space-3xl) 0;
+  background-color: var(--color-surface);
+
+  &__container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-xl);
+
+    @media (max-width: 768px) {
+      padding: 0 var(--space-md);
+    }
+  }
+
+  &__card {
+    background-color: var(--color-surface-elevated);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    h2 {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--color-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-sm);
+    }
+
+    p {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+      line-height: 1.65;
+
+      a {
+        color: var(--color-text);
+        font-weight: 700;
+
+        &:hover {
+          color: var(--color-primary-light);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,108 @@
+.service-hero {
+  background-color: var(--color-surface);
+  padding: var(--space-3xl) 0;
+
+  &__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: center;
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__text {
+    h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--color-text);
+      margin-bottom: var(--space-md);
+    }
+
+    p {
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      font-size: 1.1rem;
+      margin-bottom: var(--space-xl);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+
+  &__image {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+}
+
+.service-content {
+  padding: var(--space-3xl) 0;
+  background-color: var(--color-bg);
+
+  &__container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+
+    article {
+      h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--color-primary);
+        margin: var(--space-2xl) 0 var(--space-md);
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+
+      p {
+        color: var(--color-text-muted);
+        line-height: 1.75;
+        font-size: 1.05rem;
+        margin-bottom: var(--space-md);
+      }
+
+      ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-md);
+        padding: 0;
+
+        li {
+          color: var(--color-text-muted);
+          padding-left: var(--space-lg);
+          position: relative;
+          line-height: 1.6;
+          font-size: 1.02rem;
+
+          &::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+}

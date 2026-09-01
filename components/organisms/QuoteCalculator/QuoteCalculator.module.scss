@@ -3,7 +3,7 @@
   background-color: var(--color-surface);
 
   &__container {
-    max-width: 1100px;
+    max-width: 1450px;
     margin: 0 auto;
     padding: 0 var(--space-lg);
 
@@ -52,6 +52,8 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-xl);
+    width: min(100%, 1320px);
+    margin: 0 auto;
 
     @media (max-width: 640px) {
       padding: var(--space-md);
@@ -73,19 +75,22 @@
 
   &__options {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: var(--space-sm);
+    grid-template-columns: repeat(5, minmax(180px, 1fr));
+    gap: 1rem;
 
     @media (max-width: 1100px) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
     }
 
     @media (max-width: 760px) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.1rem;
     }
 
     @media (max-width: 520px) {
       grid-template-columns: 1fr;
+      gap: 1.2rem;
     }
   }
 
@@ -127,10 +132,11 @@
   &__urgency {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-md);
+    gap: 1.5rem;
 
     @media (max-width: 640px) {
       grid-template-columns: 1fr;
+      gap: 1.1rem;
     }
   }
 

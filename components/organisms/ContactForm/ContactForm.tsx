@@ -1,13 +1,35 @@
 'use client';
 
-import React, { useActionState } from 'react';
+import React, { useActionState, useEffect, useRef, useState } from 'react';
 import styles from './ContactForm.module.scss';
 import { submitContactForm, ContactFormState } from '@/actions/contactAction';
 
 const initialState: ContactFormState = { status: 'idle', message: '' };
 
+const subjectOptions = [
+  { value: 'devis', label: 'Demande de devis / tarifs' },
+  { value: 'questions', label: 'Questions sur les produits et services' },
+  { value: 'autre', label: 'Autre' },
+];
+
 export const ContactForm: React.FC = () => {
   const [state, formAction, isPending] = useActionState(submitContactForm, initialState);
+  const [selectedSubject, setSelectedSubject] = useState(subjectOptions[0].value);
+  const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  const selectedLabel = subjectOptions.find((option) => option.value === selectedSubject)?.label ?? subjectOptions[0].label;
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <section className={styles['contact-form']}>
@@ -18,8 +40,19 @@ export const ContactForm: React.FC = () => {
         </header>
 
         {state.status === 'success' ? (
-          <div className={styles['contact-form__success']}>
-            <p>{state.message}</p>
+          <div className={styles['contact-form__modal_overlay']} role="dialog" aria-modal="true" aria-labelledby="contact-success-title">
+            <div className={styles['contact-form__modal']}>
+              <div className={styles['contact-form__modal_icon']}>✓</div>
+              <h3 id="contact-success-title">Merci !</h3>
+              <p>{state.message}</p>
+              <button
+                type="button"
+                className={styles['contact-form__modal_button']}
+                onClick={() => window.location.href = '/'}
+              >
+                Retour à l&apos;accueil
+              </button>
+            </div>
           </div>
         ) : (
           <form action={formAction} className={styles['contact-form__form']}>
@@ -31,11 +64,41 @@ export const ContactForm: React.FC = () => {
 
             <div className={styles['contact-form__group']}>
               <label htmlFor="subject">Type de demande</label>
-              <select name="subject" id="subject">
-                <option value="devis">Demande de devis / tarifs</option>
-                <option value="questions">Questions sur les produits et services</option>
-                <option value="autre">Autre</option>
-              </select>
+              <div className={styles['contact-form__select']} ref={containerRef}>
+                <input type="hidden" name="subject" value={selectedSubject} />
+                <button
+                  type="button"
+                  id="subject"
+                  className={styles['contact-form__select_trigger']}
+                  aria-expanded={isOpen}
+                  aria-haspopup="listbox"
+                  onClick={() => setIsOpen((prev) => !prev)}
+                >
+                  <span>{selectedLabel}</span>
+                  <span className={styles['contact-form__select_arrow']} aria-hidden="true" />
+                </button>
+
+                {isOpen && (
+                  <ul className={styles['contact-form__select_menu']} role="listbox" aria-label="Type de demande">
+                    {subjectOptions.map((option) => (
+                      <li key={option.value} className={styles['contact-form__select_item']}>
+                        <button
+                          type="button"
+                          className={`${styles['contact-form__select_option']} ${selectedSubject === option.value ? styles['contact-form__select_option--selected'] : ''}`}
+                          role="option"
+                          aria-selected={selectedSubject === option.value}
+                          onClick={() => {
+                            setSelectedSubject(option.value);
+                            setIsOpen(false);
+                          }}
+                        >
+                          {option.label}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             </div>
 
             <div className={styles['contact-form__group']}>

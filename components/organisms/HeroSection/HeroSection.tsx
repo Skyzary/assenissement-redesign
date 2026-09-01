@@ -25,8 +25,9 @@ export const HeroSection: React.FC = () => {
             <span className={styles['hero__title--accent']}>l&apos;Hérault</span>
           </h1>
           <p className={styles.hero__subtitle}>
-            Assainissement, pompage fosse septique, bac à graisses, débouchage tout type de canalisation.
-            Intervention rapide à Montpellier, Sète, Palavas, Lattes, Frontignan et toute la région.
+            Assainissement, intervention en cas d&apos;inondation, pompage fosse septique, bac à graisses,
+            débouchage tout type de canalisation. Intervention rapide à Montpellier, Sète, Palavas, Lattes,
+            Frontignan et toute la région.
           </p>
           <div className={styles.hero__actions}>
             <Button href="/contact" variant="primary">Demander un devis</Button>

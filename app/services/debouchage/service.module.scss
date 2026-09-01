@@ -41,7 +41,7 @@
   &__image {
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 16px 48px var(--shadow-color-black-lg);
 
     img {
       width: 100%;
@@ -98,7 +98,7 @@
             content: '✓';
             position: absolute;
             left: 0;
-            color: var(--color-primary);
+            color: var(--color-secondary);
             font-weight: 700;
           }
         }

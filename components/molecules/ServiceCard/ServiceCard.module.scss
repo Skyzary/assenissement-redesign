@@ -1,11 +1,12 @@
 .service-card {
   background-color: var(--color-bg);
   border: 1px solid var(--color-border);
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   padding: var(--space-xl);
   display: flex;
   flex-direction: column;
   height: 100%;
+  min-width: 0;
   position: relative;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 
@@ -15,51 +16,54 @@
   }
 
   &:hover {
-    border-color: var(--color-primary);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-color: var(--color-secondary);
+    box-shadow: 0 8px 24px var(--shadow-color-accent-sm);
 
     .service-card__icon {
-      background-color: var(--color-primary);
-      color: #ffffff;
+      background-color: var(--color-secondary);
+      color: var(--color-text-on-dark);
     }
 
     .service-card__link {
-      color: var(--color-primary);
+      color: var(--color-secondary);
     }
   }
 
   &__top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
   }
 
   &__icon {
     width: 46px;
     height: 46px;
-    background-color: rgba(59, 130, 246, 0.12);
+    background-color: var(--color-accent-badge-bg);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-primary);
+    color: var(--color-secondary);
     flex-shrink: 0;
     transition: background-color 0.2s ease, color 0.2s ease;
   }
 
   &__tagline {
-    font-size: 0.725rem;
+    display: inline-block;
+    width: fit-content;
+    max-width: 100%;
+    font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    padding: 4px 10px;
-    border-radius: 999px;
+    letter-spacing: 0.05em;
+    padding: 5px 12px;
+    border-radius: var(--radius-full);
     background-color: var(--color-surface);
     color: var(--color-text-muted);
     border: 1px solid var(--color-border);
+    line-height: 1.25;
+    margin-bottom: var(--space-md);
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__title {
@@ -68,6 +72,8 @@
     color: var(--color-text);
     margin-bottom: 6px;
     line-height: 1.35;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   &__desc {
@@ -76,26 +82,37 @@
     line-height: 1.65;
     flex-grow: 1;
     margin-bottom: var(--space-lg);
+    overflow-wrap: break-word;
   }
 
   &__footer {
     padding-top: var(--space-md);
     border-top: 1px solid var(--color-border);
     margin-top: auto;
+    min-width: 0;
   }
 
   &__link {
     display: inline-flex;
     align-items: center;
     gap: 6px;
+    max-width: 100%;
     color: var(--color-text-muted);
     font-weight: 600;
     font-size: 0.9rem;
     text-decoration: none;
     transition: color 0.2s ease;
+    line-height: 1.4;
+
+    span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
 
   &__arrow {
+    flex-shrink: 0;
     transition: color 0.2s ease;
   }
 }

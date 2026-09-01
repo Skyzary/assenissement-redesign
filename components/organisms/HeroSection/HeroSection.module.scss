@@ -14,7 +14,7 @@
   &__bg {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%);
+    background: var(--gradient-hero-bg);
     z-index: 0;
     overflow: hidden;
   }
@@ -39,34 +39,36 @@
 
   &__badge {
     display: inline-block;
-    background-color: rgba(255, 255, 255, 0.15);
-    color: #ffffff;
+    background-color: var(--color-accent-badge-bg-strong);
+    color: var(--color-accent-text-soft);
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     padding: var(--space-xs) var(--space-md);
-    border-radius: 999px;
+    border-radius: var(--radius-full);
     margin-bottom: var(--space-lg);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid var(--color-accent-badge-border-strong);
+    backdrop-filter: blur(8px);
   }
 
   &__title {
     font-size: clamp(1.9rem, 5vw, 3.4rem);
     font-weight: 800;
     line-height: 1.25;
-    color: #ffffff;
+    color: var(--color-text-on-dark);
     margin-bottom: var(--space-lg);
     word-break: break-word;
   }
 
   &__title--accent {
-    color: #7dd3fc;
+    color: var(--color-accent-glow);
+    text-shadow: 0 2px 24px var(--shadow-color-accent);
   }
 
   &__subtitle {
     font-size: 1.05rem;
-    color: rgba(255, 255, 255, 0.88);
+    color: var(--color-text-on-dark-muted);
     line-height: 1.75;
     margin-bottom: var(--space-2xl);
     max-width: 720px;
@@ -90,20 +92,24 @@
 
     a {
       &:first-child {
-        background-color: #ffffff;
-        color: #1e3a8a;
+        background: var(--gradient-btn-accent);
+        color: var(--color-text-on-dark);
+        border: 1px solid var(--color-border-on-dark);
+        box-shadow: 0 4px 20px var(--shadow-color-secondary);
 
         &:hover {
-          background-color: #f0f9ff;
+          background: var(--gradient-btn-accent-hover);
+          box-shadow: 0 8px 28px var(--shadow-color-secondary-lg);
+          transform: translateY(-2px);
         }
       }
 
       &:last-child {
-        border-color: rgba(255, 255, 255, 0.7);
-        color: #ffffff;
+        border-color: var(--color-border-on-dark-strong);
+        color: var(--color-text-on-dark);
 
         &:hover {
-          background-color: rgba(255, 255, 255, 0.1);
+          background-color: var(--color-input-bg);
         }
       }
     }

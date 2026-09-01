@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Manrope } from 'next/font/google';
 import './globals.scss';
 import { SmoothScrollProvider } from '@/components/atoms/SmoothScroll/SmoothScrollProvider';
 import { JsonLd } from '@/components/atoms/JsonLd/JsonLd';
@@ -7,6 +7,12 @@ import { JsonLd } from '@/components/atoms/JsonLd/JsonLd';
 const inter = Inter({ 
   subsets: ['latin'], 
   variable: '--font-inter',
+  display: 'swap',
+});
+
+const manrope = Manrope({
+  subsets: ['latin'],
+  variable: '--font-manrope',
   display: 'swap',
 });
 
@@ -78,7 +84,7 @@ export default function RootLayout({
       <head>
         <JsonLd />
       </head>
-      <body className={`${inter.variable}`}>
+      <body className={`${inter.variable} ${manrope.variable}`}>
         <SmoothScrollProvider>
           {children}
         </SmoothScrollProvider>

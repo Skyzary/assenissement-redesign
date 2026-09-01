@@ -3,6 +3,7 @@ import { Inter, Manrope } from 'next/font/google';
 import './globals.scss';
 import { SmoothScrollProvider } from '@/components/atoms/SmoothScroll/SmoothScrollProvider';
 import { JsonLd } from '@/components/atoms/JsonLd/JsonLd';
+import { BackToTop } from '@/components/atoms/BackToTop/BackToTop';
 
 const inter = Inter({ 
   subsets: ['latin'], 
@@ -87,6 +88,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${manrope.variable}`}>
         <SmoothScrollProvider>
           {children}
+          <BackToTop />
         </SmoothScrollProvider>
       </body>
     </html>

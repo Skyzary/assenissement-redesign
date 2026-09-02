@@ -5,6 +5,8 @@ import styles from './QuoteCalculator.module.scss';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/atoms/Button/Button';
 
+import { CalendarIcon, AlertIcon, ShieldCheckIcon, ClockIcon, BadgeCheckIcon } from '@/components/atoms/icons';
+
 interface ServiceOption {
   id: string;
   name: string;
@@ -72,27 +74,50 @@ export const QuoteCalculator: React.FC = () => {
                 className={`${styles.calculator__urgency_btn} ${urgency === 'normal' ? styles['calculator__urgency_btn--active'] : ''}`}
                 onClick={() => setUrgency('normal')}
               >
-                📅 Rendez-vous standard (Intervention 24h)
+                <CalendarIcon size={18} />
+                <span>Rendez-vous standard (Intervention 24h)</span>
               </button>
               <button
                 type="button"
                 className={`${styles.calculator__urgency_btn} ${urgency === 'urgent' ? styles['calculator__urgency_btn--active'] : ''}`}
                 onClick={() => setUrgency('urgent')}
               >
-                🚨 Urgence immédiate (Intervention 7j/7 - 24h/24)
+                <AlertIcon size={18} />
+                <span>Urgence immédiate (Intervention 7j/7 - 24h/24)</span>
               </button>
             </div>
           </div>
 
           <div className={styles.calculator__result}>
             <div className={styles.calculator__result_text}>
-              <span>Estimation indicative :</span>
-              <span className={styles.calculator__price}>À partir de {estimatedPrice} € TTC</span>
+              <div className={styles.calculator__price_row}>
+                <span className={styles.calculator__price}>À partir de {estimatedPrice} € TTC</span>
+                {urgency === 'urgent' && (
+                  <span className={styles.calculator__urgency_tag}>
+                    ⚡ Majoration urgence 24/7 incluse (+30%)
+                  </span>
+                )}
+              </div>
               <span className={styles.calculator__note}>Devis final gratuit confirmé sur place par notre technicien</span>
             </div>
             <Button href="/contact" variant="primary">
               Valider mon devis gratuit →
             </Button>
+          </div>
+
+          <div className={styles.calculator__guarantees}>
+            <div className={styles.calculator__guarantee_item}>
+              <ShieldCheckIcon size={18} />
+              <span>Prix 100% transparent & sans surprise</span>
+            </div>
+            <div className={styles.calculator__guarantee_item}>
+              <ClockIcon size={18} />
+              <span>Arrivée sur site en 30 à 45 min</span>
+            </div>
+            <div className={styles.calculator__guarantee_item}>
+              <BadgeCheckIcon size={18} />
+              <span>Agréé assurances & matériel haute pression</span>
+            </div>
           </div>
         </motion.div>
       </div>

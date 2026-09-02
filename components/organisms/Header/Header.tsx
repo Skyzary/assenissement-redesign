@@ -7,6 +7,8 @@ import styles from './Header.module.scss';
 import { Button } from '@/components/atoms/Button/Button';
 import { ThemeToggle } from '@/components/atoms/ThemeToggle/ThemeToggle';
 
+import { SITE_CONFIG } from '@/config/site';
+
 export const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -19,11 +21,11 @@ export const Header: React.FC = () => {
       {/* Top emergency bar */}
       <div className={styles['header__top-bar']}>
         <div className={styles['header__top-container']}>
-          <span className={styles['header__urgency-badge']}>🚨 Urgences 7j/7 - 24h/24</span>
+          <span className={styles['header__urgency-badge']}>🚨 {SITE_CONFIG.guarantees.available}</span>
           <div className={styles['header__top-phones']}>
-            <span>Tél: <a href="tel:+33467859780">04 67 85 97 80</a></span>
+            <span>Tél: <a href={SITE_CONFIG.phones.standard.href}>{SITE_CONFIG.phones.standard.display}</a></span>
             <span className={styles['header__phone-divider']}>|</span>
-            <span>Urgence 24h: <a href="tel:+33665145576" className={styles['header__urgency-link']}>06 65 14 55 76</a></span>
+            <span>Urgence 24h: <a href={SITE_CONFIG.phones.urgent.href} className={styles['header__urgency-link']}>{SITE_CONFIG.phones.urgent.display}</a></span>
           </div>
         </div>
       </div>
@@ -34,26 +36,27 @@ export const Header: React.FC = () => {
           <Link href="/">
             <Image 
               src="/images/logo.webp" 
-              alt="Burnens Assainissement Logo" 
+              alt={`${SITE_CONFIG.name} Logo`}
               width={46} 
               height={46} 
               priority 
             />
             <div className={styles['header__brand-info']}>
-              <span className={styles['header__logo-text']}>Burnens Assainissement</span>
-              <span className={styles['header__logo-subtext']}>Assainissement & Débouchage dans l&apos;Hérault</span>
+              <span className={styles['header__logo-text']}>{SITE_CONFIG.name}</span>
+              <span className={styles['header__logo-subtext']}>{SITE_CONFIG.tagline}</span>
             </div>
           </Link>
         </div>
 
         <nav className={`${styles.header__nav} ${isMobileMenuOpen ? styles['header__nav--open'] : ''}`}>
           <ul className={styles['header__nav-list']}>
-            <li><Link href="/" onClick={() => setIsMobileMenuOpen(false)}>Accueil</Link></li>
-            <li><Link href="/services/debouchage" onClick={() => setIsMobileMenuOpen(false)}>Débouchage</Link></li>
-            <li><Link href="/services/vidange" onClick={() => setIsMobileMenuOpen(false)}>Vidange Fosse</Link></li>
-            <li><Link href="/services/pompage" onClick={() => setIsMobileMenuOpen(false)}>Pompage Bac</Link></li>
-            <li><Link href="/services/camera" onClick={() => setIsMobileMenuOpen(false)}>Inspection Caméra</Link></li>
-            <li><Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link></li>
+            {SITE_CONFIG.nav.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} onClick={() => setIsMobileMenuOpen(false)}>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
 

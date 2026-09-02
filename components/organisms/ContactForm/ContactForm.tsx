@@ -16,6 +16,7 @@ export const ContactForm: React.FC = () => {
   const [state, formAction, isPending] = useActionState(submitContactForm, initialState);
   const [selectedSubject, setSelectedSubject] = useState(subjectOptions[0].value);
   const [isOpen, setIsOpen] = useState(false);
+  const [isDismissed, setIsDismissed] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   const selectedLabel = subjectOptions.find((option) => option.value === selectedSubject)?.label ?? subjectOptions[0].label;
@@ -27,9 +28,23 @@ export const ContactForm: React.FC = () => {
       }
     };
 
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
   }, []);
+
+  const handleResetModal = () => {
+    setIsDismissed(true);
+  };
 
   return (
     <section className={styles['contact-form']}>
@@ -39,7 +54,7 @@ export const ContactForm: React.FC = () => {
           <p>Vous pouvez compter sur le professionnalisme de notre équipe pour prendre en main votre projet d&apos;assainissement.</p>
         </header>
 
-        {state.status === 'success' ? (
+        {state.status === 'success' && !isDismissed ? (
           <div className={styles['contact-form__modal_overlay']} role="dialog" aria-modal="true" aria-labelledby="contact-success-title">
             <div className={styles['contact-form__modal']}>
               <div className={styles['contact-form__modal_icon']}>✓</div>
@@ -48,9 +63,9 @@ export const ContactForm: React.FC = () => {
               <button
                 type="button"
                 className={styles['contact-form__modal_button']}
-                onClick={() => window.location.href = '/'}
+                onClick={handleResetModal}
               >
-                Retour à l&apos;accueil
+                Fermer
               </button>
             </div>
           </div>

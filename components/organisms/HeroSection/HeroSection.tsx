@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './HeroSection.module.scss';
 import Image from 'next/image';
 import { Button } from '@/components/atoms/Button/Button';
+import { PhoneIcon } from '@/components/atoms/icons';
+import { SITE_CONFIG } from '@/config/site';
 
 export const HeroSection: React.FC = () => {
   return (
@@ -19,7 +21,7 @@ export const HeroSection: React.FC = () => {
       </div>
       <div className={styles.hero__container}>
         <div className={styles.hero__content}>
-          <div className={styles.hero__badge}>Urgences 7j/7 — 24h/24</div>
+          <div className={styles.hero__badge}>{SITE_CONFIG.guarantees.available}</div>
           <h1 className={styles.hero__title}>
             Le spécialiste du débouchage de canalisation dans&nbsp;
             <span className={styles['hero__title--accent']}>l&apos;Hérault</span>
@@ -31,9 +33,22 @@ export const HeroSection: React.FC = () => {
           </p>
           <div className={styles.hero__actions}>
             <Button href="/contact" variant="primary">Demander un devis</Button>
-            <Button href="tel:+33665145576" variant="outline">
-              Urgence : 06 65 14 55 76
+            <Button href={SITE_CONFIG.phones.urgent.href} variant="outline">
+              <PhoneIcon size={18} />
+              <span>Urgence : {SITE_CONFIG.phones.urgent.display}</span>
             </Button>
+          </div>
+
+          <div className={styles.hero__trust}>
+            <div className={styles.hero__rating}>
+              <span className={styles.hero__stars}>{SITE_CONFIG.rating.stars}</span>
+              <strong>{SITE_CONFIG.rating.score}</strong>
+              <span>{SITE_CONFIG.rating.source}</span>
+            </div>
+            <span className={styles.hero__divider}>•</span>
+            <span className={styles.hero__trust_item}>{SITE_CONFIG.guarantees.responseTime}</span>
+            <span className={styles.hero__divider}>•</span>
+            <span className={styles.hero__trust_item}>{SITE_CONFIG.guarantees.freeQuote}</span>
           </div>
         </div>
       </div>

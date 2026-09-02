@@ -61,7 +61,7 @@ export const StatsSection: React.FC = () => {
     <section className={styles.stats}>
       <div className={styles.stats__container}>
         <StatCounter value={15} suffix="+" label="Ans d'expérience" sublabel="Savoir-faire garanti depuis 2009" />
-        <StatCounter value={24} suffix="/7" label="Disponibilité urgences" sublabel="Intervention rapide dans la journée" />
+        <StatCounter value={24} suffix="/7" label="Disponibilité urgences" sublabel="Sur place en 30 à 45 minutes" />
         <StatCounter value={50} suffix=" km" label="Zone d'intervention" sublabel="Autour de Cournonsec & Montpellier" />
         <StatCounter value={100} suffix="%" label="Devis gratuit" sublabel="Transparence tarifaire garantie" />
       </div>

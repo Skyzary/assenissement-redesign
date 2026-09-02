@@ -1,7 +1,7 @@
 export const SITE_CONFIG = {
   name: 'Burnens Assainissement',
   tagline: "Assainissement & Débouchage dans l'Hérault",
-  description: "Débouchage de canalisation, fosse septique, pompage et assainissement dans l'Hérault depuis 2009. Urgences 7j/7 et 24h/24.",
+  description: "Débouchage de canalisation, fosse septique, pompage et assainissement dans l'Hérault depuis 2009. Urgences 7j/7 et 24h/24 en 30 à 45 min.",
   phones: {
     standard: {
       display: '04 67 85 97 80',
@@ -20,7 +20,7 @@ export const SITE_CONFIG = {
     reviewsCount: '120+',
   },
   guarantees: {
-    responseTime: 'Intervention en 30-45 min',
+    responseTime: 'Intervention d\'urgence en 30-45 min',
     freeQuote: 'Devis gratuit avant travaux',
     available: 'Urgences 7j/7 — 24h/24',
   },

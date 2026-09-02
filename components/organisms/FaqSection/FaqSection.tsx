@@ -7,19 +7,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 const faqs = [
   {
     question: 'Combien coûte une intervention de débouchage de canalisation ?',
-    answer: 'Nos tarifs dépendent de la nature du bouchon et du matériel nécessaire (pompe haute pression, hydrocureur, inspection vidéo). Le devis est 100% gratuit et établi avant le début des travaux.',
+    answer: 'Nos tarifs débutent à partir de 90 € TTC et dépendent de la nature du bouchon et du matériel nécessaire (pompe haute pression, camion hydrocureur, inspection vidéo). Le devis est 100% gratuit et validé avec vous avant le début des travaux.',
   },
   {
     question: 'En combien de temps pouvez-vous intervenir en cas d\'urgence ?',
-    answer: 'Nous intervenons dans la journée 7j/7 et 24h/24 dans toute la zone de Cournonsec, Montpellier, Sète, Frontignan et les communes avoisinantes.',
+    answer: 'Pour toute urgence (débordement, WC inutilisable, inondation), nous intervenons en 30 à 45 minutes, 7j/7 et 24h/24 dans tout le département de l\'Hérault (Montpellier, Sète, Frontignan, Cournonsec et leurs environs).',
   },
   {
     question: 'Quelle est la fréquence conseillée pour vidanger sa fosse septique ?',
-    answer: 'Il est recommandé de vidanger une fosse septique tous les 3 à 4 ans selon le nombre d\'occupants. Nous délivrons un bordereau officiel de suivi des déchets d\'assainissement.',
+    answer: 'Il est recommandé de vidanger une fosse septique tous les 3 à 4 ans selon le volume et le nombre d\'occupants. Nous délivrons un bordereau officiel de suivi des déchets (BSD) indispensable pour les contrôles du SPANC.',
   },
   {
     question: 'Proposez-vous une garantie sur vos interventions ?',
-    answer: 'Oui, nous proposons une garantie de 3 mois sur nos prestations de débouchage et d\'assainissement pour assurer votre tranquillité d\'esprit.',
+    answer: 'Oui, nous appliquons une garantie de 3 mois sur nos prestations de débouchage et de curage d\'assainissement pour vous assurer une tranquillité d\'esprit totale.',
   },
 ];
 

@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 
 const testimonials = [
   {
-    quote: 'Il est intervenu très rapidement. Même qu\'il soit tard. Travail très bien effectué. Quand il est reparti, les lieux étaient propres. Vous pouvez l\'appeler les yeux fermés.',
+    quote: 'Il est intervenu très rapidement, même à une heure tardive. Travail très bien effectué. Quand il est reparti, les lieux étaient propres. Vous pouvez l\'appeler les yeux fermés.',
     author: 'Patus Sport Auto',
   },
   {

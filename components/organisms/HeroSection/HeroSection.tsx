@@ -23,13 +23,13 @@ export const HeroSection: React.FC = () => {
         <div className={styles.hero__content}>
           <div className={styles.hero__badge}>{SITE_CONFIG.guarantees.available}</div>
           <h1 className={styles.hero__title}>
-            Le spécialiste du débouchage de canalisation dans&nbsp;
-            <span className={styles['hero__title--accent']}>l&apos;Hérault</span>
+            Débouchage de canalisation & Urgence Assainissement dans&nbsp;
+            <span className={styles['hero__title--accent']}>l&apos;Hérault (34)</span>
           </h1>
           <p className={styles.hero__subtitle}>
-            Assainissement, intervention en cas d&apos;inondation, pompage fosse septique, bac à graisses,
-            débouchage tout type de canalisation. Intervention rapide à Montpellier, Sète, Palavas, Lattes,
-            Frontignan et toute la région.
+            WC bouché, refoulement ou fosse pleine ? Intervention d&apos;urgence en 30 à 45 minutes pour pompage, 
+            curage haute pression et débouchage de tous types de canalisations à Montpellier, Sète, Palavas, Lattes, 
+            Frontignan et tout le département.
           </p>
           <div className={styles.hero__actions}>
             <Button href="/contact" variant="primary">Demander un devis</Button>

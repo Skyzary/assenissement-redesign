@@ -75,6 +75,10 @@
 
   &__phone-divider {
     opacity: 0.4;
+
+    @media (max-width: 640px) {
+      display: none;
+    }
   }
 
   /* Main navigation container */
@@ -381,6 +385,11 @@
     text-decoration: none;
     color: var(--color-text);
     transition: color 0.15s ease, transform 0.15s ease;
+
+    // Remove border from the last link
+    .header__apple-list li:last-child & {
+      border-bottom: none;
+    }
 
     &:hover,
     &:active,

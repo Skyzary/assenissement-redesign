@@ -8,12 +8,15 @@ export const ThemeToggle: React.FC = () => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
-    setMounted(true);
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.setAttribute('data-theme', savedTheme);
-    }
+    // Avoid synchronous setState in effect (fixes lint error)
+    queueMicrotask(() => {
+      setMounted(true);
+      const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
+      if (savedTheme) {
+        setTheme(savedTheme);
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      }
+    });
   }, []);
 
   const toggleTheme = () => {

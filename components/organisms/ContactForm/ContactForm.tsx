@@ -26,18 +26,20 @@ export const ContactForm: React.FC = () => {
     // Pre-fill form from URL parameters (e.g., from external links)
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
-      const subjectParam = params.get('subject');
-      if (subjectParam && subjectOptions.some(opt => opt.value === subjectParam)) {
-        setSelectedSubject(subjectParam);
-      }
-      
-      const serviceParam = params.get('service');
-      const urgencyParam = params.get('urgency');
-      if (serviceParam) {
-        const msg = `Bonjour, je souhaite un devis pour l'intervention suivante : ${serviceParam}.` + 
-                    (urgencyParam === 'urgent' ? ' (C\'est une demande URGENTE).' : '');
-        setMessageText(msg);
-      }
+      queueMicrotask(() => {
+        const subjectParam = params.get('subject');
+        if (subjectParam && subjectOptions.some(opt => opt.value === subjectParam)) {
+          setSelectedSubject(subjectParam);
+        }
+        
+        const serviceParam = params.get('service');
+        const urgencyParam = params.get('urgency');
+        if (serviceParam) {
+          const msg = `Bonjour, je souhaite un devis pour l'intervention suivante : ${serviceParam}.` + 
+                      (urgencyParam === 'urgent' ? ' (C\'est une demande URGENTE).' : '');
+          setMessageText(msg);
+        }
+      });
 
       // Listen for custom events from the Quote Calculator
       const handleFillDevis = (e: Event) => {

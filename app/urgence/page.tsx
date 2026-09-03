@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './urgence.module.scss';
 import { SITE_CONFIG } from '@/config/site';
 
@@ -54,9 +55,9 @@ export default function UrgencePage() {
           <span>✔️ Agréé assurances</span>
         </div>
 
-        <a href="/" className={styles.back_link}>
+        <Link href="/" className={styles.back_link}>
           ← Retourner à l&apos;accueil du site
-        </a>
+        </Link>
       </div>
     </main>
   );

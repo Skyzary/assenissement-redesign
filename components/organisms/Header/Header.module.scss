@@ -197,12 +197,8 @@
   }
 
   &__cta-btn {
-    @media (max-width: 768px) {
-      padding: 6px 12px !important;
-      min-height: 36px !important;
-      font-size: 0.85rem !important;
-      gap: 6px !important;
-      border-radius: 50px !important;
+    @media (max-width: 1200px) {
+      display: none !important;
     }
   }
 

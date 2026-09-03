@@ -81,6 +81,11 @@
     align-items: center;
     gap: var(--space-lg);
 
+    @media (max-width: 1024px) {
+      grid-template-columns: auto auto;
+      justify-content: space-between;
+    }
+
     @media (max-width: 768px) {
       padding: 12px var(--space-md);
       gap: var(--space-md);
@@ -183,6 +188,12 @@
     gap: var(--space-md);
     flex-shrink: 0;
     justify-self: end;
+  }
+
+  &__cta-btn {
+    @media (max-width: 1024px) {
+      display: none;
+    }
   }
 
   &__theme-toggle {
@@ -433,6 +444,7 @@
     font-size: 0.95rem;
     text-decoration: none;
     transition: background-color 0.2s ease, transform 0.2s ease;
+    width: 100%;
 
     svg {
       color: var(--color-secondary);
@@ -459,6 +471,10 @@
     text-align: center;
     box-shadow: 0 4px 16px var(--shadow-color-accent-lg);
     transition: transform 0.2s ease, filter 0.2s ease;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    width: 100%;
 
     &:hover,
     &:active {

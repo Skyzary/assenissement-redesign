@@ -105,17 +105,20 @@ export const Header: React.FC = () => {
         </nav>
 
         <div className={styles.header__cta}>
-          <ThemeToggle />
+          <div className={styles['header__theme-toggle']}>
+            <ThemeToggle />
+          </div>
 
           {pathname === '/' ? (
             <Button 
+              className={styles['header__cta-btn']}
               onClick={() => document.getElementById('devis')?.scrollIntoView({ behavior: 'smooth' })} 
               variant="secondary"
             >
               Devis Gratuit
             </Button>
           ) : (
-            <Button href="/contact" variant="secondary">
+            <Button className={styles['header__cta-btn']} href="/contact" variant="secondary">
               Devis Gratuit
             </Button>
           )}

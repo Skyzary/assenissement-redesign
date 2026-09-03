@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
 :root {
   // Brand colors - Light Mode (Warm marine navy + striking orange urgency)
   --color-primary: #1b3654;

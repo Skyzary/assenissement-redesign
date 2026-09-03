@@ -4,6 +4,7 @@ import React from 'react';
 import styles from './AboutSection.module.scss';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { Button } from '@/components/atoms/Button/Button';
 
 const advantages = [
   { label: 'Expertise', detail: 'Un diagnostic sur le terrain est effectué avant de démarrer les travaux.' },
@@ -23,8 +24,8 @@ export const AboutSection: React.FC = () => {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           viewport={{ once: true }}
         >
-          <span className={styles['about-section__eyebrow']}>Depuis 2009</span>
-          <h2>Votre spécialiste de l&apos;assainissement</h2>
+          <span className={styles['about-section__eyebrow']}>Artisan Local — Entreprise Familiale depuis 2009</span>
+          <h2>Votre spécialiste de l&apos;assainissement dans l&apos;Hérault</h2>
           <p>
             En tant que <strong>spécialiste du débouchage de canalisation</strong> et de l&apos;assainissement,
             nous mettons à votre service plus de 15 ans d&apos;expertise technique. Avant de commencer
@@ -45,6 +46,12 @@ export const AboutSection: React.FC = () => {
               </li>
             ))}
           </ul>
+
+          <div className={styles['about-section__cta']}>
+            <Button href="/contact" variant="secondary">
+              Demander un devis gratuit
+            </Button>
+          </div>
         </motion.div>
 
         <motion.div
@@ -65,6 +72,10 @@ export const AboutSection: React.FC = () => {
               quality={75}
               className={styles['about-section__img']}
             />
+            <div className={styles['about-section__stats']}>
+              <strong>15+</strong>
+              <span>Ans d&apos;expérience</span>
+            </div>
           </div>
         </motion.div>
       </div>

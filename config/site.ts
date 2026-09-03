@@ -23,7 +23,11 @@ export const SITE_CONFIG = {
     responseTime: 'Intervention d\'urgence en 30-45 min',
     freeQuote: 'Devis gratuit avant travaux',
     available: 'Urgences 7j/7 — 24h/24',
+    artisan: 'Artisan Local — Entreprise Familiale',
+    experience: 'Depuis 2009 — +15 ans de savoir-faire',
   },
+  googleMaps: 'https://maps.app.goo.gl/iLUPagSZHpzki1w77?g_st=ac',
+  facebook: 'https://www.facebook.com/profile.php?id=100089272197547&ref=page_internal',
   nav: [
     { label: 'Accueil', href: '/' },
     { label: 'Débouchage', href: '/services/debouchage' },
@@ -33,3 +37,48 @@ export const SITE_CONFIG = {
     { label: 'Contact', href: '/contact' },
   ],
 } as const;
+
+export const SERVICES = [
+  {
+    id: 'debouchage',
+    title: 'Débouchage de canalisations',
+    tagline: 'Intervention d\'urgence 24/7',
+    description: 'Débouchage haute pression pour WC, éviers, baignoires et canalisations principales. Matériel professionnel spécialisé.',
+    href: '/services/debouchage',
+  },
+  {
+    id: 'vidange',
+    title: 'Vidange de fosse septique',
+    tagline: 'Nettoyage & curage complet',
+    description: 'Pompage et vidange réglementée de fosses septiques et toutes eaux. Remise de bordereau de suivi des déchets.',
+    href: '/services/vidange',
+  },
+  {
+    id: 'pompage',
+    title: 'Pompage bac à graisses',
+    tagline: 'Particuliers & Restauration',
+    description: 'Entretien et curage périodique des bacs à graisses pour préserver vos évacuations et respecter la réglementation.',
+    href: '/services/pompage',
+  },
+  {
+    id: 'camera',
+    title: 'Caméra canalisation',
+    tagline: 'Diagnostic vidéo HD',
+    description: 'Inspection vidéo endoscopique de précision pour localiser casse, effondrement, bouchon ou infiltration.',
+    href: '/services/camera',
+  },
+  {
+    id: 'fuite',
+    title: 'Recherche de fuites',
+    tagline: 'Sans destruction',
+    description: 'Détection et géolocalisation des fuites enterrées ou encastrées grâce à l\'acoustique et l\'inspection vidéo.',
+    href: '/contact',
+  },
+  {
+    id: 'terrassement',
+    title: 'Terrassement & VRD',
+    tagline: 'Raccordement & Drainage',
+    description: 'Travaux de terrassement, création de tranchées, pose de drains et raccordement complet au tout-à-l\'égout.',
+    href: '/contact',
+  },
+] as const;

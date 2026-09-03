@@ -109,19 +109,14 @@ export const Header: React.FC = () => {
             <ThemeToggle />
           </div>
 
-          {pathname === '/' ? (
-            <Button 
-              className={styles['header__cta-btn']}
-              onClick={() => document.getElementById('devis')?.scrollIntoView({ behavior: 'smooth' })} 
-              variant="secondary"
-            >
-              Devis Gratuit
-            </Button>
-          ) : (
-            <Button className={styles['header__cta-btn']} href="/contact" variant="secondary">
-              Devis Gratuit
-            </Button>
-          )}
+          <Button 
+            className={styles['header__cta-btn']}
+            href={SITE_CONFIG.phones.urgent.href}
+            variant="secondary"
+          >
+            <PhoneIcon size={18} />
+            <span className={styles['header__cta-text']}>Appeler</span>
+          </Button>
 
           {/* Mobile Hamburger Toggle Button */}
           <button 

@@ -206,11 +206,7 @@
     }
   }
 
-  &__theme-toggle {
-    @media (max-width: 480px) {
-      display: none !important;
-    }
-  }
+
 
   /* Hamburger Icon */
   &__hamburger {

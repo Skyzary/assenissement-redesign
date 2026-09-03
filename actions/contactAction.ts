@@ -15,6 +15,13 @@ export async function submitContactForm(
   const subject = formData.get('subject');
   const message = formData.get('message');
   const rgpd = formData.get('rgpd');
+  const botField = formData.get('botField');
+
+  // Honeypot check (anti-spam)
+  if (botField) {
+    console.log('Bot detected via honeypot. Ignoring submission.');
+    return { status: 'success', message: 'Votre message a bien été envoyé. Nous vous répondrons rapidement !' };
+  }
 
   // Basic validation
   if (!name || typeof name !== 'string' || name.trim().length < 2) {

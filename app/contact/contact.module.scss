@@ -107,5 +107,62 @@
         }
       }
     }
+
+    &_link_wrapper {
+      margin-top: 8px;
+    }
+
+    &_maps_link {
+      color: var(--color-primary-light) !important;
+      font-weight: 600 !important;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &_facebook_link {
+      color: #1877f2 !important;
+      font-weight: 600 !important;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.map {
+  padding: 0 0 var(--space-3xl) 0;
+  background-color: var(--color-surface);
+
+  &__container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+
+    @media (max-width: 768px) {
+      padding: 0 var(--space-md);
+    }
+  }
+
+  iframe {
+    border: 0;
+    border-radius: var(--radius-lg);
+    width: 100%;
+    height: 450px;
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }

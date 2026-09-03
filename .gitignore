@@ -51,3 +51,6 @@ next-env.d.ts
 .wrangler
 .dev.vars*
 !.dev.vars.example
+
+# Design & internal docs (not for version control)
+DESIGN_AUDIT.md

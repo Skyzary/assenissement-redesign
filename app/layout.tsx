@@ -4,6 +4,7 @@ import './globals.scss';
 import { SmoothScrollProvider } from '@/components/atoms/SmoothScroll/SmoothScrollProvider';
 import { JsonLd } from '@/components/atoms/JsonLd/JsonLd';
 import { BackToTop } from '@/components/atoms/BackToTop/BackToTop';
+import { ThemeProvider } from '@/components/atoms/ThemeProvider/ThemeProvider';
 
 const inter = Inter({ 
   subsets: ['latin'], 
@@ -85,15 +86,31 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" data-theme="light">
+    <html lang="fr" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            (function() {
+              try {
+                var theme = localStorage.getItem('theme');
+                if (theme) {
+                  document.documentElement.setAttribute('data-theme', theme);
+                } else {
+                  document.documentElement.setAttribute('data-theme', 'light');
+                }
+              } catch (e) {}
+            })();
+          `
+        }} />
         <JsonLd />
       </head>
       <body className={`${inter.variable} ${manrope.variable}`}>
-        <SmoothScrollProvider>
-          {children}
-          <BackToTop />
-        </SmoothScrollProvider>
+        <ThemeProvider>
+          <SmoothScrollProvider>
+            {children}
+            <BackToTop />
+          </SmoothScrollProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

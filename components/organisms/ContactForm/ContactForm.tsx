@@ -15,11 +15,48 @@ const subjectOptions = [
 export const ContactForm: React.FC = () => {
   const [state, formAction, isPending] = useActionState(submitContactForm, initialState);
   const [selectedSubject, setSelectedSubject] = useState(subjectOptions[0].value);
+  const [messageText, setMessageText] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   const selectedLabel = subjectOptions.find((option) => option.value === selectedSubject)?.label ?? subjectOptions[0].label;
+
+  useEffect(() => {
+    // Pre-fill form from URL parameters (e.g., from external links)
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const subjectParam = params.get('subject');
+      if (subjectParam && subjectOptions.some(opt => opt.value === subjectParam)) {
+        setSelectedSubject(subjectParam);
+      }
+      
+      const serviceParam = params.get('service');
+      const urgencyParam = params.get('urgency');
+      if (serviceParam) {
+        const msg = `Bonjour, je souhaite un devis pour l'intervention suivante : ${serviceParam}.` + 
+                    (urgencyParam === 'urgent' ? ' (C\'est une demande URGENTE).' : '');
+        setMessageText(msg);
+      }
+
+      // Listen for custom events from the Quote Calculator
+      const handleFillDevis = (e: Event) => {
+        const customEvent = e as CustomEvent;
+        const { service, urgency } = customEvent.detail || {};
+        if (service) {
+          setSelectedSubject('devis');
+          const msg = `Bonjour, je souhaite un devis pour l'intervention suivante : ${service}.` + 
+                      (urgency === 'urgent' ? ' (C\'est une demande URGENTE).' : '');
+          setMessageText(msg);
+        }
+      };
+
+      window.addEventListener('fillDevisForm', handleFillDevis);
+      return () => {
+        window.removeEventListener('fillDevisForm', handleFillDevis);
+      };
+    }
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -47,7 +84,7 @@ export const ContactForm: React.FC = () => {
   };
 
   return (
-    <section className={styles['contact-form']}>
+    <section className={styles['contact-form']} id="devis">
       <div className={styles['contact-form__container']}>
         <header className={styles['contact-form__header']}>
           <h2>Demandez un devis gratuit</h2>
@@ -76,6 +113,12 @@ export const ContactForm: React.FC = () => {
                 <p>{state.message}</p>
               </div>
             )}
+
+            {/* Honeypot field for anti-spam */}
+            <div style={{ display: 'none' }} aria-hidden="true">
+              <label htmlFor="botField">Ne pas remplir ce champ si vous êtes humain :</label>
+              <input type="text" name="botField" id="botField" tabIndex={-1} autoComplete="off" />
+            </div>
 
             <div className={styles['contact-form__group']}>
               <label htmlFor="subject">Type de demande</label>
@@ -118,7 +161,14 @@ export const ContactForm: React.FC = () => {
 
             <div className={styles['contact-form__group']}>
               <label htmlFor="message">Précisions</label>
-              <textarea name="message" id="message" placeholder="Précisez votre demande..." rows={4} />
+              <textarea 
+                name="message" 
+                id="message" 
+                placeholder="Précisez votre demande..." 
+                rows={4} 
+                value={messageText}
+                onChange={(e) => setMessageText(e.target.value)}
+              />
             </div>
 
             <div className={styles['contact-form__row']}>

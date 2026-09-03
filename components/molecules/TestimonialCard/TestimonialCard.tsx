@@ -35,7 +35,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({ quote, author 
         <p>&ldquo;{quote}&rdquo;</p>
       </blockquote>
       <footer className={styles['testimonial-card__author']}>
-        <span>{author}</span>
+        <cite>{author}</cite>
       </footer>
     </article>
   );

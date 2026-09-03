@@ -100,7 +100,15 @@ export const QuoteCalculator: React.FC = () => {
               </div>
               <span className={styles.calculator__note}>Devis final gratuit confirmé sur place par notre technicien</span>
             </div>
-            <Button href="/contact" variant="primary">
+            <Button 
+              onClick={() => {
+                window.dispatchEvent(new CustomEvent('fillDevisForm', { 
+                  detail: { service: selectedService, urgency } 
+                }));
+                document.getElementById('devis')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              variant="primary"
+            >
               Valider mon devis gratuit →
             </Button>
           </div>

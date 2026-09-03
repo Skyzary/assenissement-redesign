@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Button.module.scss';
 import Link from 'next/link';
 
-interface ButtonProps {
+interface ButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   children: React.ReactNode;
   href?: string;
   onClick?: () => void;
@@ -17,20 +17,38 @@ export const Button: React.FC<ButtonProps> = ({
   onClick, 
   variant = 'primary', 
   type = 'button',
-  className = ''
+  className = '',
+  target,
+  rel,
+  ...restProps
 }) => {
   const classes = `${styles.button} ${styles[`button--${variant}`]} ${className}`;
 
   if (href) {
+    const isExternal = href.startsWith('http') || href.startsWith('tel:') || href.startsWith('mailto:');
+    if (isExternal) {
+      return (
+        <a 
+          href={href} 
+          className={classes} 
+          target={target} 
+          rel={target === '_blank' && !rel ? 'noopener noreferrer' : rel}
+          {...restProps}
+        >
+          {children}
+        </a>
+      );
+    }
+
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} className={classes} target={target} rel={rel} {...restProps}>
         {children}
       </Link>
     );
   }
 
   return (
-    <button type={type} onClick={onClick} className={classes}>
+    <button type={type} onClick={onClick} className={classes} {...(restProps as React.ButtonHTMLAttributes<HTMLButtonElement>)}>
       {children}
     </button>
   );

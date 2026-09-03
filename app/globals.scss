@@ -123,6 +123,7 @@
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
+  --radius-card: 12px;
   --radius-full: 9999px;
 }
 
@@ -261,4 +262,19 @@ a {
 
 ul {
   list-style: none;
+}
+
+@keyframes green-glow {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 var(--color-success-glow);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px transparent;
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 var(--color-success-glow);
+  }
 }

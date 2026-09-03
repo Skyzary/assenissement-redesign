@@ -4,8 +4,9 @@ import React from 'react';
 import styles from './ServicesSection.module.scss';
 import { ServiceCard } from '@/components/molecules/ServiceCard/ServiceCard';
 import { motion } from 'framer-motion';
+import { SERVICES } from '@/config/site';
 
-const Icons = {
+const Icons: Record<string, React.ReactNode> = {
   debouchage: (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
@@ -48,57 +49,6 @@ const Icons = {
   ),
 };
 
-const services = [
-  {
-    id: 'debouchage',
-    icon: Icons.debouchage,
-    title: 'Débouchage de canalisations',
-    tagline: 'Intervention d\'urgence 24/7',
-    description: 'Débouchage haute pression pour WC, éviers, baignoires et canalisations principales. Matériel professionnel spécialisé.',
-    href: '/services/debouchage',
-  },
-  {
-    id: 'vidange',
-    icon: Icons.vidange,
-    title: 'Vidange de fosse septique',
-    tagline: 'Nettoyage & curage complet',
-    description: 'Pompage et vidange réglementée de fosses septiques et toutes eaux. Remise de bordereau de suivi des déchets.',
-    href: '/services/vidange',
-  },
-  {
-    id: 'pompage',
-    icon: Icons.pompage,
-    title: 'Pompage bac à graisses',
-    tagline: 'Particuliers & Restauration',
-    description: 'Entretien et curage périodique des bacs à graisses pour préserver vos évacuations et respecter la réglementation.',
-    href: '/services/pompage',
-  },
-  {
-    id: 'camera',
-    icon: Icons.camera,
-    title: 'Caméra canalisation',
-    tagline: 'Diagnostic vidéo HD',
-    description: 'Inspection vidéo endoscopique de précision pour localiser casse, effondrement, bouchon ou infiltration.',
-    href: '/services/camera',
-  },
-  {
-    id: 'fuite',
-    icon: Icons.fuite,
-    title: 'Recherche de fuites',
-    tagline: 'Sans destruction',
-    description: 'Détection et géolocalisation des fuites enterrées ou encastrées grâce à l\'acoustique et l\'inspection vidéo.',
-    href: '/services/fuite',
-  },
-  {
-    id: 'terrassement',
-    icon: Icons.terrassement,
-    title: 'Terrassement & VRD',
-    tagline: 'Raccordement & Drainage',
-    description: 'Travaux de terrassement, création de tranchées, pose de drains et raccordement complet au tout-à-l\'égout.',
-    href: '/services/terrassement',
-  },
-];
-
 export const ServicesSection: React.FC = () => {
   return (
     <section className={styles['services-section']}>
@@ -119,7 +69,7 @@ export const ServicesSection: React.FC = () => {
         </motion.header>
 
         <div className={styles['services-section__grid']}>
-          {services.map((service, index) => (
+          {SERVICES.map((service, index) => (
             <motion.div
               key={service.id}
               initial={{ opacity: 0, y: 35, filter: 'blur(8px)' }}
@@ -132,7 +82,7 @@ export const ServicesSection: React.FC = () => {
               viewport={{ once: true, margin: '-60px' }}
             >
               <ServiceCard
-                icon={service.icon}
+                icon={Icons[service.id]}
                 title={service.title}
                 tagline={service.tagline}
                 description={service.description}
@@ -145,3 +95,4 @@ export const ServicesSection: React.FC = () => {
     </section>
   );
 };
+
